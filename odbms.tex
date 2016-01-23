@@ -1,2 +1,67 @@
 
 \section{ODBMS}
+
+\begin{breakbox}
+\textbf{Manifesto:}
+\newline Object-oriented systems
+\begin{enumerate}
+	\item Complex objects
+	\item Object identity
+	\item Encapsulation
+	\item Types and classes
+	\item Type and class hierarchies
+	\item Overriding, -Loading, late binding
+	\item Computational completeness
+	\item Extensibility
+\end{enumerate}
+Database management systems
+\begin{enumerate}
+	\setcounter{enumi}{8}
+	\item Persistence
+	\item Efficiency
+	\item Concurrency
+	\item Reliability
+	\item Declarative query language
+\end{enumerate}
+\end{breakbox}
+
+\begin{breakbox}
+\textbf{Advantages RDBMS / ODBMS:}
+\newline Pro RDBMS
+\begin{itemize}
+	\item Neutral form of data, different views
+	\item Ad-hoc queries (joins), even between non-PK fields
+	\item OLAP / Cubes
+	\item Cluster architectures
+	\item More DB services / tools, inc. administration
+	\item More sensitive to inheritance (no overlapping/disjoint in UML)
+	\item Concurrency / Isolation (transactions)
+\end{itemize}
+Pro ODBMS
+\begin{itemize}
+	\item No mapping
+	\item Performance (no intrinsic mapping loss; pointer based)
+	\item Deep object graphs
+	\item Automated schema changes
+	\item No administration
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\textbf{Products:}
+\begin{itemize}
+	\item Caché, db4o (C\#, Java), Versant (C++, Java), ObjectivityDB (C++), ObjectStore (C++)
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\textbf{db4o Features:}
+\begin{itemize}
+	\item No annotations in classes
+	\item Local and Client/Server
+	\item ACID
+	\item Object caching, garbage collection
+	\item Automated schema evolution
+	\item Faster than MySQL, OR Mapper (50x?)
+\end{itemize}
+\end{breakbox}
