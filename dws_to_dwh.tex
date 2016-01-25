@@ -1,0 +1,22 @@
+
+\section{DSS To DWH}
+
+\begin{breakbox}
+\textbf{Grouping Sets:}
+\lstinputlisting[language=SQL]{sql_code/grouping_sets.sql}
+Bemerkungen:
+\begin{itemize}
+	\item PARTITION BY $\cdots$: Wenn weggelassen, werden alle Tupel selected.
+	\item ORDER BY $\cdots$: Sortiert die Sequenz.
+	\item $\cdots$ ROWS $\cdots$: (optional): Wenn window size nicht explizit gegeben:
+		\begin{itemize}
+			\item ganze Partition oder
+			\item bis zu diesem Tupel für den Fall, dass eine Sortiersequenz gegeben ist.
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\textbf{Summen über Partitionen:}
+\lstinputlisting[language=SQL]{sql_code/multiple_sums.sql}
+\end{breakbox}

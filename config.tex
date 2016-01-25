@@ -1,16 +1,19 @@
 
-\usepackage[margin=1cm]{geometry}
+\usepackage[margin=0.25cm]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{multicol}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{microtype}
 \usepackage{boites}
 \usepackage{pgf}
 \usepackage{stmaryrd}
 \usepackage{graphicx}
+
+\usepackage{multicol}
+\setlength\columnsep{3pt}
 
 \usepackage{enumitem}
 \setlist{nolistsep,leftmargin=*}
@@ -19,13 +22,30 @@
 \usetikzlibrary{shapes,shapes.geometric,arrows,automata,fit,calc,positioning,matrix,backgrounds,decorations.pathreplacing}
 \tikzset{initial text={}}
 
-% change title sizes
+% change title size, color and spacing
 \usepackage{titlesec}
-\titleformat*{\section}{\small\bfseries}
-\titleformat*{\subsection}{\small\bfseries}
-\titleformat*{\subsubsection}{\small\bfseries}
-\titleformat*{\paragraph}{\small\bfseries}
-\titleformat*{\subparagraph}{\small\bfseries}
+\titleformat*{\section}{\tiny\bfseries\color{Plum}}
+\titleformat*{\subsection}{\tiny\bfseries\color{Plum}}
+\titleformat*{\subsubsection}{\tiny\bfseries\color{Plum}}
+\titleformat*{\paragraph}{\tiny\bfseries\color{Plum}}
+\titleformat*{\subparagraph}{\tiny\bfseries\color{Plum}}
+
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+
+% listings sql config
+\usepackage{listings}
+\lstset{language=SQL,
+basicstyle=\ttfamily\tiny,
+linewidth=4.5cm,
+keywordstyle = \color{Emerald}\bfseries,
+commentstyle=\color{gray}\itshape,
+breaklines=true,
+showstringspaces=false,
+tabsize=2,
+}
 
 % remove indent of new paragraphs
 \setlength\parindent{0pt}
