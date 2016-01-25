@@ -12,23 +12,29 @@
 \usepackage{stmaryrd}
 \usepackage{graphicx}
 
+% own defined commands
+\newcommand{\boxtitle}[1]{\textcolor{Plum}{\textbf{#1}}}
+
+% multicol config
 \usepackage{multicol}
 \setlength\columnsep{3pt}
 
+% enumeration and itemize config
 \usepackage{enumitem}
 \setlist{nolistsep,leftmargin=*}
 
+% tikz config
 \usepackage{tikz}
 \usetikzlibrary{shapes,shapes.geometric,arrows,automata,fit,calc,positioning,matrix,backgrounds,decorations.pathreplacing}
 \tikzset{initial text={}}
 
 % change title size, color and spacing
 \usepackage{titlesec}
-\titleformat*{\section}{\tiny\bfseries\color{Plum}}
-\titleformat*{\subsection}{\tiny\bfseries\color{Plum}}
-\titleformat*{\subsubsection}{\tiny\bfseries\color{Plum}}
-\titleformat*{\paragraph}{\tiny\bfseries\color{Plum}}
-\titleformat*{\subparagraph}{\tiny\bfseries\color{Plum}}
+\titleformat*{\section}{\tiny\bfseries\color{RoyalPurple}}
+\titleformat*{\subsection}{\tiny\bfseries\color{RoyalPurple}}
+\titleformat*{\subsubsection}{\tiny\bfseries\color{RoyalPurple}}
+\titleformat*{\paragraph}{\tiny\bfseries\color{RoyalPurple}}
+\titleformat*{\subparagraph}{\tiny\bfseries\color{RoyalPurple}}
 
 \titlespacing*{\section}
 {0pt}{0pt}{0pt}
