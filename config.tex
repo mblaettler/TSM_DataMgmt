@@ -14,10 +14,11 @@
 
 % own defined commands
 \newcommand{\boxtitle}[1]{\textcolor{Plum}{\textbf{#1}}}
+\newcommand{\sql}[1]{\lstinputlisting[language=SQL,aboveskip=1pt, belowskip=2pt]{#1}}
 
 % multicol config
 \usepackage{multicol}
-\setlength\columnsep{3pt}
+\setlength\columnsep{1pt}
 
 % enumeration and itemize config
 \usepackage{enumitem}
@@ -58,7 +59,7 @@ tabsize=2,
 
 % configure indents of breakboxes
 \def\breakboxparindent{0pt}
-\def\breakboxskip{3pt}
+\def\breakboxskip{1pt}
 
 % remove page numbering
 \pagenumbering{gobble}
