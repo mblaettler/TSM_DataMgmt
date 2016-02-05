@@ -46,7 +46,6 @@ Aufgabe: A page can hold 4 array cells.
 	\item \textcolor{Emerald}{I}nformation: analysis not limited by OLAP system.
 \end{itemize}
 \end{breakbox}
-
 \begin{breakbox}
 \boxtitle{Optimize MOLAP:}
 \newline To address data sparsity MOLAP implementation usually differentiates between:
@@ -74,3 +73,84 @@ Aufgabe: A page can hold 4 array cells.
 	\item data blocks are only stored for actual occurrences in sparse dimensions.
 \end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+\boxtitle{MOLAP vs. OLAP:}
+\newline MOLAP:
+\begin{itemize}
+	\item faster computation.
+	\item efficiency sensitive to increase in data volume and dimensions.
+\end{itemize}ROLAP:
+\begin{itemize}
+	\item larger amounts of data.
+	\item scalability.
+	\item mature DBMSs (concurrency, data management, recovery $\ldots$).
+	\item constant transformation necessary between multidimensional $\leftrightarrow$ relational model.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{HOLAP:}
+\newline advantage of arrays over relations:
+\begin{itemize}
+	\item depends on allocation rate of data in cube.
+	\item starts at certain thresholds.
+\end{itemize}Objective:
+\begin{itemize}
+	\item combine advantages of MOLAP and ROLAP.
+\end{itemize}
+Hybrid OLAP:
+\begin{itemize}
+	\item hybrid approach.
+	\item sparse data remains in relational DB.
+	\item dense data gets exported to multidimensional arrays.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Optimize ROLAP:}
+\newline RDBS performance:
+\begin{itemize}
+	\item suffers most from joins of huge data sets.
+\end{itemize} Optimization objective:
+\begin{itemize}
+	\item significantly reduce data sets by indexing.
+\end{itemize}Special indexes often applied with DWHs:
+\begin{itemize}
+	\item Join Indexes.
+	\item Bitmap Indexes.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Join Indexes:}
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/join_indexes.png}
+\end{center}
+\begin{itemize}
+	\item combine record IDs for attributes in multiple tables at a time.
+	\item create indexes for every such attribute combination frequently used for joins
+	\begin{itemize}
+		\item e.g. dimension attributes
+		\item combinational explosion!
+	\end{itemize}
+	\item sort order of attributes impacts query acceleration.
+\end{itemize}
+\end{breakbox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
