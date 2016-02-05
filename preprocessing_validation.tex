@@ -1,2 +1,56 @@
 
 \section{Preprocessing and Validation}
+
+\begin{breakbox}
+\boxtitle{Binning}
+
+Given: list with visitors' ages:
+
+\begin{center}
+7, 7, 8, 9, 10, 12, 13, 22, 22, 36, 38, 64
+\end{center}
+
+\begin{breakbox}
+\boxtitle{Equidepth}
+Each bin should just hold 3 distinct values. $12/3=4$ since all bins should have the same size. Naming the bins is optional.
+
+\begin{itemize}
+	\item \textbf{Children:} $7 \leq age \le 10$ with $7$ $7$ $8$ $9$
+	\item \textbf{Youths:} $10 \leq age \le 22$ with $10$ $12$ $13$ $22$
+	\item \textbf{Adults:} $22 \leq age \leq 64$ with $22$ $36$ $38$ $64$
+\end{itemize}
+
+The objective is to sort the unknown instances. In the end, determining the bin boundaries is important, not the location of the training set's instances! So it does not matter that the two $22$ values are in different bins.
+
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Equiwidth}
+Each bin should have the same interval width, again 3 bins.  Range from $7$ to $64 \implies$ $(64-7)/3=19$. One bin is exactly 19 years wide, except the last one which contains 20 items.
+
+\begin{itemize}
+	\item \textbf{Young:} $7 \leq age \le 26$ with $7$ $7$ $8$ $9$ $10$ $12$ $13$ $22$ $22$
+	\item \textbf{Youths:} $26 \leq age \le 45$ with $36$ $38$
+	\item \textbf{Adults:} $45 \leq age \leq 64$ with $64$	
+\end{itemize}
+\end{breakbox}
+
+Grouping unknown instances:
+
+\begin{tabular}{l|l|l}
+\textbf{Age} & \textbf{equidepth} & \textbf{equiwidth} \\
+\hline
+8   & Children  & young     \\
+22  & Adults    & young     \\
+45  & Adults    & old       \\
+6   & Children  & young     \\
+70  & Adults    & old      
+\end{tabular}
+
+The two last entries are outside of the training set's value domain so the most fitting discrete value is assigned.
+
+
+
+
+\end{breakbox}
+
