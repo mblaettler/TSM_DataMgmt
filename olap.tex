@@ -20,10 +20,10 @@
 \begin{breakbox}
 \boxtitle{CUBE:}
 \sql{sql_code/cube.sql}
-Merke:
+Note:
 \begin{itemize}
-	\item Bei n Dimensionen ergibt CUBE $2^n$ Einträge.
-	\item Das Resultat des CUBE Operators enthält alle Einträge zur Erstellung von cross tabulations:
+	\item Cube has $2^n$ entries for n dimensions.
+	\item Result of the CUBE Ooperator contains all entries to build cross tabulations:
 \end{itemize}
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/cross_tabulation.png}
@@ -33,22 +33,22 @@ Merke:
 \begin{breakbox}
 \boxtitle{ROLLUP:}
 \sql{sql_code/rollup.sql}
-Merke:
+Note:
 \begin{itemize}
-	\item Die Dimensionen werden von rechts her gruppiert.
-	\item GROUPING kann verwendet werden, um zu sehen, welche Records gruppiert worden sind.
+	\item Dimensions are grouped from left to right.
+	\item GROUPING can be used to see which records have been grouped.
 \end{itemize}
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Bi-Temporale Tabellen:}
+\boxtitle{Bi-Temporal Tables:}
 \newline Update:
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/bi_temporal_update.png}
 \end{center}
-Merke:
+Note:
 \begin{itemize}
-	\item Der valid\_from und der known\_since Eintrag werden zusammen mit der ArtNr zum Primary Key, damit Einträge eindeutig bleiben.
+	\item The valid\_from and the known\_since entries are combined with ArtNr to build the new primary key.
 \end{itemize}
 \end{breakbox}
 
