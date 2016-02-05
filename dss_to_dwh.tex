@@ -4,20 +4,20 @@
 \begin{breakbox}
 \boxtitle{Grouping Sets:}
 \sql{sql_code/grouping_sets.sql}
-Bemerkungen:
+Remarks:
 \begin{itemize}
-	\item PARTITION BY $\cdots$: Wenn weggelassen, werden alle Tupel selected.
-	\item ORDER BY $\cdots$: Sortiert die Sequenz.
-	\item $\cdots$ ROWS $\cdots$: (optional): Wenn window size nicht explizit gegeben:
+	\item PARTITION BY $\cdots$: If left out, all tuples are selected.
+	\item ORDER BY $\cdots$: Sorts the sequence.
+	\item $\cdots$ ROWS $\cdots$: (optional): If window size not explicitly set:
 		\begin{itemize}
-			\item ganze Partition oder
-			\item bis zu diesem Tupel für den Fall, dass eine Sortiersequenz gegeben ist.
+			\item whole partition or
+			\item until current tuple in the case that a sort order sequence is given.
 		\end{itemize}
 \end{itemize}
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{SUM über Partitionen:}
+\boxtitle{SUM over partitions:}
 \sql{sql_code/multiple_sums.sql}
 \end{breakbox}
 
@@ -32,7 +32,7 @@ Bemerkungen:
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{AVG und Formatierung:}
+\boxtitle{AVG and formatting:}
 \sql{sql_code/avg_format.sql}
 \end{breakbox}
 
@@ -44,7 +44,7 @@ Bemerkungen:
 %\end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Zusätzliche analytische Funktionen:}
+\boxtitle{Additional analytical functions:}
 \begin{itemize}
 	\item VAR\_POP(), VAR\_SAMP(), STDDEV\_POP(), STDDEV\_SAMP()
 	\begin{itemize}
@@ -52,7 +52,7 @@ Bemerkungen:
 	\end{itemize}
 	\item RANK(), DENSERANK()
 	\begin{itemize}
-		\item establish a ranking - with or w/o gaps
+		\item establish a ranking, with or without gaps
 	\end{itemize}
 	\item FIRST\_VALUE(), LAST\_VALUE()
 	\begin{itemize}
