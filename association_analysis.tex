@@ -51,3 +51,44 @@ This results in the following table:
 \end{center}
 \end{breakbox}
 
+\begin{breakbox}
+\boxtitle{Support \& Confidence:}
+\begin{itemize}
+	\item Rule: R: A $\Rightarrow$ B
+	\item Support (Reflects the significance, the importance of an itemset):
+		\begin{itemize}
+			\item[]
+			\item[] supp(A) $= \frac{\text{\#transactions with A}}{\text{total \#transactions}}$
+			\item[]
+			\item[] supp(R) $= \frac{\text{\#transactions with A} \cup \text{B}}{\text{total \#transactions}}$
+			\item[]
+		\end{itemize}
+	\item Confidence (Reliability measure, how certain am I to say, that B will occur given that A is present.):
+		\begin{itemize}
+			\item[]
+			\item[] conf(R) $= \frac{\text{supp(R)}}{\text{supp(A)}}$
+			\item[]
+			\item[] conf(R) $= \frac{\text{\#transactions with A} \cup \text{B}}{\text{\#transactions with A}}$
+			\item[]
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
