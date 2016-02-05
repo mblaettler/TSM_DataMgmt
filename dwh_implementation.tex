@@ -1,2 +1,15 @@
 
 \section{DWH Implementation}
+
+\begin{breakbox}
+\boxtitle{MOLAP}
+\newline Multi-dimensional OLAP stored in n-dimensional arrays.
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/molap.png}
+\end{center}
+Formel für storage (und query):
+\begin{center}
+$i_{1k} + (i_{2l-1}) \cdot |I_1| + (i_{3m}-1) \cdot |I_1| \cdot |I_2| + \cdots$,
+\end{center}
+mit $I_j =$ dimension $j$, $i_{jk} =$ index for $k^{th}$ element of dimension $j$.
+\end{breakbox}
