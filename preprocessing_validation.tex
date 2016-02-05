@@ -49,6 +49,79 @@ Grouping unknown instances:
 
 The two last entries are outside of the training set's value domain so the most fitting discrete value is assigned.
 
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Confusion Matrix}
+
+c=child, y=youth, a=adult
+
+\begin{tabular}{l|l|l||l|l|l}
+\textbf{G} & \textbf{Age} & \textbf{R} & \textbf{G} & \textbf{Age} & \textbf{R} \\
+\hline
+f & ch & MS   & f & yth & MS   \\
+f & ch & WC   & f & yth & RC   \\
+f & ch & WC   & f & yth & RC   \\
+f & ch & WC   & m & yth & WC   \\
+f & ch & MS   & m & yth & RC   \\
+m & ch & MS   & m & yth & RC   \\
+m & ch & WC   & m & ad & RC   \\
+m & ch & WC   & m & ad & RC  
+\end{tabular}
+
+Given rules and which instances they classify:
+
+\begin{enumerate}
+	\item if age = \textbf{child} then \textbf{WC}
+		\begin{itemize}
+			\item 3 instances \textbf{MS} as \textbf{WC} (false)
+			\item 5 instances \textbf{WC} as \textbf{WC} (true)
+		\end{itemize}
+	\item if age = \textbf{youth} and gender = \textbf{m} then \textbf{RC}
+		\begin{itemize}
+			\item 1 instance \textbf{WC} as \textbf{RC} (false)
+			\item 2 instances \textbf{RC} as \textbf{RC} (true)
+		\end{itemize}
+	\item if age = \textbf{youth} and gender = \textbf{f} then \textbf{MS}
+		\begin{itemize}
+			\item 1 instance \textbf{MS} as \textbf{MS} (true)
+			\item 2 instances \textbf{RC} as \textbf{MS} (false)
+		\end{itemize}
+	\item if age = \textbf{adult} then \textbf{RC}
+		\begin{itemize}
+			\item 2 instances \textbf{RC} as \textbf{RC} (true)
+		\end{itemize}
+\end{enumerate}
+
+Confusion matrix formed by the above rules for the test set.
+\includegraphics[width=.16\textwidth]{slides_images/confusion_matrix_theme_park}
+
+Indicators:
+
+\begin{itemize}
+	\item True positives:
+	\begin{itemize}
+		\item target class, predicted correctly
+		\item instances classified as ''RC'' \textbf{being indeed ''RC'': $2+2=4$}
+	\end{itemize}
+	\item False positives:
+		\begin{itemize}
+			\item target class predicted, actual class is different
+			\item instances classified as ''RC'' but \textbf{being of some other class: $1$}		
+		\end{itemize}
+	\item True negatives:
+		\begin{itemize}
+			\item instances classified as not ''RC'' and \textbf{being indeed not ''RC'': $3 + 5 + 1 = 9$}
+			\item contrast class, predicted correctly
+		\end{itemize}
+	\item False negatives: 
+		\begin{itemize}
+			\item constract class predicted, actual class different
+			\item instances classified as not ''RC'' but \textbf{''RC'' though: $2$}
+		\end{itemize}
+	\item Precision = TP/(TP+FP) = $4/(4+1)=0.8$
+	\item Recall = TP/(TP+FN) = $4/(4+2)=0.67$
+\end{itemize}
 
 
 
