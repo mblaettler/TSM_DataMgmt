@@ -7,20 +7,20 @@
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/molap.png}
 \end{center}
-Formel für storage (und query):
+Formula for storage (and query):
 \begin{center}
 $i_{1k} + (i_{2l-1}) \cdot |I_1| + (i_{3m}-1) \cdot |I_1| \cdot |I_2| + \cdots$,
 \end{center}
-mit $I_j =$ dimension $j$, $i_{jk} =$ index for $k^{th}$ element of dimension $j$.
+with $I_j =$ dimension $j$, $i_{jk} =$ index for $k^{th}$ element of dimension $j$.
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Beispiel (Pages):}
-\newline Folgende Tabellen und Daten sind gegeben. Die Dimensionen sind geordnet nach Shipment, Supplier, Year, Product:
+\boxtitle{Example (Pages):}
+\newline Following tables and data are given. Dimensions are ordered as follows: shipment, supplier, year, product.
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/molap_example.png}
 \end{center}
-Aufgabe: A page can hold 4 array cells.
+Exercise: A page can hold 4 array cells.
 \begin{enumerate}[label=(\alph*)]
 	\item How many pages have to be loaded for a query after all sales of Lobster in 2008?
 		\begin{itemize}
