@@ -46,3 +46,31 @@ Aufgabe: A page can hold 4 array cells.
 	\item \textcolor{Emerald}{I}nformation: analysis not limited by OLAP system.
 \end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Optimize MOLAP:}
+\newline To address data sparsity MOLAP implementation usually differentiates between:
+\begin{itemize}
+	\item dense dimensions (e.g. Time, Location, Salesperson).
+	\item sparse dimensions (e.g. Customer, Product, Sales Promotion).
+	\item dense dimensions form a data block.
+	\item sparse dimensions are kept as indexes.
+	\item data blocks only exist where sparse dimensions hold values.
+\end{itemize}
+\begin{center}
+\includegraphics[width=.05\textwidth]{slides_images/dense_molap.png}
+\end{center}
+\begin{itemize}
+	\item data block
+	\begin{itemize}
+		\item containing individual array cells.
+		\item for relatively dense dimensions.
+	\end{itemize}
+\end{itemize}
+\begin{center}
+\includegraphics[width=.05\textwidth]{slides_images/sparse_molap.png}
+\end{center}
+\begin{itemize}
+	\item data blocks are only stored for actual occurrences in sparse dimensions.
+\end{itemize}
+\end{breakbox}
