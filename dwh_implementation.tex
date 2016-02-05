@@ -138,6 +138,70 @@ Hybrid OLAP:
 \end{itemize}
 \end{breakbox}
 
+\begin{breakbox}
+\boxtitle{ETL:}
+\newline \textcolor{Emerald}{E}xtraction, \textcolor{Emerald}{T}ransforming and \textcolor{Emerald}{L}oading.
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Extraction:}
+\newline Capture data in operational systems:
+\begin{itemize}
+	\item risk of interference with everyday business transactions.
+\end{itemize}
+Physical extracts:
+\begin{itemize}
+	\item for performance reasons.
+	\item risk of losing hard coded information, e.g. pointers representing relationships.
+\end{itemize}Not all data is extracted:
+\begin{itemize}
+	\item selection specific to later analytical needs.
+\end{itemize}
+What data looks like:
+\begin{itemize}
+	\item lacking (not recorded, not entered).
+	\item contradictory (different understanding, e.g.in different source systems).
+	\item on different scales.
+	\item redundancy.
+	\item noisy (random irregularities).
+	\item errors.
+	\item only aggregated values available.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Transformation:}
+\newline i.e. data consolidation:
+\begin{itemize}
+	\item achieve a general level of data quality (across all source database systems)
+\end{itemize}No 1:1 copy of operational data:
+\begin{itemize}
+	\item aggregation
+	\item filtering
+	\item restructuring and reformatting
+	\item completion
+	\item adding remarks
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Loading:}
+\newline Move into DWH:
+\begin{itemize}
+	\item sometimes preformatted to physical format.
+\end{itemize}Integrity checks
+\begin{itemize}
+	\item before load
+	\item after load with respect to data already in DWH, e.g. for uniqueness.
+\end{itemize}
+Build indexes:
+\begin{itemize}
+	\item time consuming
+	\item insert $\leftrightarrow$ drop and rebuild
+\end{itemize}
+\end{breakbox}
+
+
 
 
 
