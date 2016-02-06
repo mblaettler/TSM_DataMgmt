@@ -1,0 +1,106 @@
+
+\section{NoSQL Databases}
+
+\begin{breakbox}
+\boxtitle{Scaling:}
+\begin{itemize}
+	\item Scale vertically (scale up):
+		\begin{itemize}
+			\item add resources to single node in a system, typically involving the addition of CPUs or memory to single computer.
+		\end{itemize}
+	\item Scale horizontally (scale out):
+		\begin{itemize}
+			\item add more nodes to a system, such as adding new computer to distributed software application.
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{CAP Theorem:}
+\begin{itemize}
+	\item \textcolor{Emerald}{C}osistency: The data is in every replication on every server the same.
+	\item \textcolor{Emerald}{A}vailability: The data must be always available (accessible).
+	\item \textcolor{Emerald}{P}artition Tolerance: The db works fine despite network and machine failures.
+\end{itemize}
+One can only pick two of those properties at a time.
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Consistency:}
+\begin{itemize}
+	\item Strong consistency:
+		\begin{itemize}
+			\item after an update is committed, each subsequent access will return the updated value.
+		\end{itemize}
+	\item Weak consistency:
+		\begin{itemize}
+			\item the systems does not guarantee that subsequent accesses will return the updated value.
+			\item a number of conditions might need to be met before the updated value is returned.
+			\item inconsistency window: period between update and the point in time when every access is guaranteed to return the updated value.
+		\end{itemize}
+	\item Eventual consistency:
+		\begin{itemize}
+			\item Specific form of weak consistency.
+			\item If no new updates are made, eventually all accesses will return the last updated values.
+			\item In the absence of failures, the maximum size of the inconsistency window can be determined based on communication delays, system load and number of replicas.
+			\item Domain Name System (DNS) uses eventual consistency for updates.
+			\item RDBMS use eventual consistency for asynchronous replication or backup.
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{BASE:}
+\begin{itemize}
+	\item \textcolor{Emerald}{B}asically \textcolor{Emerald}{A}vailable: permanent availablity
+	\item \textcolor{Emerald}{S}oft State: consistency is no solid state
+	\item \textcolor{Emerald}{E}ventual Consistency: data is consistent sometime
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{NoSQL Characteristics:}
+\begin{enumerate}
+	\item Horizontal scalable (shared nothing)
+	\item Can Replicate and distribute (partition) data
+	\item Have simple API (no SQL binding)
+	\item Have weaker concurrency / transaction model than ACID (eventually consistent)
+	\item Are schema free, have weak schema restrictions (can add new attribues at runtime)
+	\item Use distributed indexes and use RAM for data storage efficiently
+\end{enumerate}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{NoSQL Categories:}
+\begin{enumerate}
+	\item Key/Value databases
+	\item Document stores
+	\item Column oriented databases
+	\item Graph databases
+	\item Others
+\end{enumerate}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Key/Value Databases:}
+\end{breakbox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
