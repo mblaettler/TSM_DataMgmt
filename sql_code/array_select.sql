@@ -9,4 +9,4 @@ WHERE 10000 = ANY (pay_by_quarter);
 
 -- 1, 6
 SELECT f1[1][-2][3], f1[1][-1][5]
-FROM (SELECT '[1:1][-2:-1][3:5]={{{1,2,3},{4,5,6}}}'::int[] as f1) AS ss;
+FROM (SELECT '[1:1][-2:-1][3:5] = {{{1,2,3},{4,5,6}}}'::int[] as f1) AS ss;
