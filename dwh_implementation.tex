@@ -5,7 +5,7 @@
 \boxtitle{MOLAP:}
 \newline Multi-dimensional OLAP stored in n-dimensional arrays.
 \begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/molap.png}
+\includegraphics[width=.15\textwidth]{slides_images/molap}
 \end{center}
 Formula for storage (and query):
 \begin{center}
@@ -18,7 +18,7 @@ with $I_j =$ dimension $j$, $i_{jk} =$ index for $k^{th}$ element of dimension $
 \boxtitle{Example (Pages):}
 \newline Following tables and data are given. Dimensions are ordered as follows: shipment, supplier, year, product.
 \begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/molap_example.png}
+\includegraphics[width=.15\textwidth]{slides_images/molap_example}
 \end{center}
 Exercise: A page can hold 4 array cells.
 \begin{enumerate}[label=(\alph*)]
@@ -32,7 +32,7 @@ Exercise: A page can hold 4 array cells.
 		\end{itemize}
 \end{enumerate}
 \begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/molap_solution.png}
+\includegraphics[width=.15\textwidth]{slides_images/molap_solution}
 \end{center}
 \end{breakbox}
 
@@ -67,7 +67,7 @@ Exercise: A page can hold 4 array cells.
 	\item data blocks only exist where sparse dimensions hold values.
 \end{itemize}
 \begin{center}
-\includegraphics[width=.05\textwidth]{slides_images/dense_molap.png}
+\includegraphics[width=.05\textwidth]{slides_images/dense_molap}
 \end{center}
 \begin{itemize}
 	\item data block
@@ -77,7 +77,7 @@ Exercise: A page can hold 4 array cells.
 	\end{itemize}
 \end{itemize}
 \begin{center}
-\includegraphics[width=.05\textwidth]{slides_images/sparse_molap.png}
+\includegraphics[width=.05\textwidth]{slides_images/sparse_molap}
 \end{center}
 \begin{itemize}
 	\item data blocks are only stored for actual occurrences in sparse dimensions.
@@ -135,7 +135,7 @@ Hybrid OLAP:
 \begin{breakbox}
 \boxtitle{Join Indexes:}
 \begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/join_indexes.png}
+\includegraphics[width=.15\textwidth]{slides_images/join_indexes}
 \end{center}
 \begin{itemize}
 	\item combine record IDs for attributes in multiple tables at a time.
