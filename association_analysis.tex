@@ -1,35 +1,35 @@
 
 \section{Association Analysis}
 
-\begin{breakbox}
-\boxtitle{Candidate Generation:}
-\begin{itemize}
-	\item Set minimum support.
-	\item Identify frequent 1-itemsets.
-	\item Combine to frequent multi-itemsets.
-	\item Build possible 2-itemsets.
-	\item Determine frequency of 2-itemsets.
-	\item non-frequent itemsets are eliminated.
-	\item Build possible 3-itemsets.
-	\item Candidate elimination.
-	\item Determine frequency of remaining candidates.
-	\item Build possible 4-itemsets, and so on \ldots
-\end{itemize}
-\end{breakbox}
+%\begin{breakbox}
+%\boxtitle{Candidate Generation:}
+%\begin{itemize}
+%	\item Set minimum support.
+%	\item Identify frequent 1-itemsets.
+%	\item Combine to frequent multi-itemsets.
+%	\item Build possible 2-itemsets.
+%	\item Determine frequency of 2-itemsets.
+%	\item non-frequent itemsets are eliminated.
+%	\item Build possible 3-itemsets.
+%	\item Candidate elimination.
+%	\item Determine frequency of remaining candidates.
+%	\item Build possible 4-itemsets, and so on \ldots
+%\end{itemize}
+%\end{breakbox}
 
-\begin{breakbox}
-\boxtitle{A-Priori Algorithm:}
-\begin{itemize}
-	\item Candidate generation (see above).
-	\item set minimum confidence $\gamma$.
-	\item for each frequent itemset: set up every possible combination as a rule.
-	\item calculate confidence for every rule.
-	\item select rules $\geq$ minimum confidence.
-\end{itemize}
-\begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/a-priori}
-\end{center}
-\end{breakbox}
+%\begin{breakbox}
+%\boxtitle{A-Priori Algorithm:}
+%\begin{itemize}
+%	\item Candidate generation (see above).
+%	\item set minimum confidence $\gamma$.
+%	\item for each frequent itemset: set up every possible combination as a rule.
+%	\item calculate confidence for every rule.
+%	\item select rules $\geq$ minimum confidence.
+%\end{itemize}
+%\begin{center}
+%\includegraphics[width=.15\textwidth]{slides_images/a-priori}
+%\end{center}
+%\end{breakbox}
 
 \begin{breakbox}
 \boxtitle{FP Growth:}
@@ -104,21 +104,36 @@ This results in the following table:
 \end{itemize}
 \end{breakbox}
 
+\begin{breakbox}
+\boxtitle{Correlation \& Lift:}
+\begin{itemize}
+	\item Correlation (Reflects the significance, the importance of an itemset):
+		\begin{itemize}
+			\item[]
+			\item[] corr$_\text{A,B} = \frac{\text{P(A} \cup \text{B)}}{\text{P(A)} \cdot \text{P(B)}}$
+			\item[]
+			\item correlation $>$ 1: positively correlated, A implies presence of B.
+			\item correlation $<$ 1: negatively correlated, A implies absence of B.
+			\item[]
+		\end{itemize}
+	\item Lift (correlation measure in market basket analysis often referred to as lift):
+		\begin{itemize}
+			\item[]
+			\item[] lift(A $\rightarrow$ B) $= \frac{\text{conf(A} \rightarrow \text{B)}}{\text{supp(B)}}$
+			\item[]
+			\item Note: lift(A $\rightarrow$ B) = corr$_\text{A,B}$ (insert definition of conf in lift).
+			\item lift tells us how much the rule's confidence exceeds mere probability.
+			\item lift indicates a rule's overall significance.
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{breakbox}
+\boxtitle{Limits To Association Analysis:}
+\begin{itemize}
+	\item Rules inherent to the data are of no use.
+	\item Not all rules are interesting.
+	\item Rules might induce wrong associations.
+	\item Rules might be nonsense.
+\end{itemize}
+\end{breakbox}
