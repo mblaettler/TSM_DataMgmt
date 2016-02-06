@@ -2,7 +2,7 @@
 \section{Preprocessing and Validation}
 
 \begin{breakbox}
-\boxtitle{Data Mining Process Steps}
+\boxtitle{Data Mining Process Steps:}
 
 \begin{itemize}
 	\item \textbf{Data Integration}: gather data from multiple sources
@@ -13,11 +13,57 @@
 	\item \textbf{Validation}: measure pattern quality and identify the most significant ones
 	\item \textbf{Visualization}: present and illustrate mined knowledge
 \end{itemize}
-
 \end{breakbox}
 
+
+
 \begin{breakbox}
-\boxtitle{Binning}
+\boxtitle{Data Reduction:}
+
+Ways to reduce large data sets:
+
+\begin{itemize}
+	\item Aggregation
+		\begin{itemize}
+			\item merging instances
+			\item roll-up operations on data cubes
+		\end{itemize}
+	\item Reduction of dimensions
+		\begin{itemize}
+			\item elimination of attributes
+			\item merging of attributes (''generalization'')
+			\item e.g. merge all persons with the same birthday and save somewhere how many persons are in this group 
+		\end{itemize}
+	\item Numerosity reduction
+		\begin{itemize}
+			\item just use samples from data, not the total set (''Stichproben'')
+			\item representation of a series of instances by 1 cluster. e.g. by the cluster mean or medoid
+			\item regression: representation of instances by function coefficients. e.g. replace multiple points with a function (=less storage), approximation of the reality.
+		\end{itemize}
+\end{itemize}
+\begin{center}
+	\includegraphics[width=.12\textwidth]{slides_images/data_reduction_regression_line}
+\end{center}
+\end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{Attribute Subset Selection Techniques:}
+Idea: explore the search space of attribute combinations for the most useful ones.
+\begin{itemize}
+	\item Stepwise Forward Selection
+	\item Stepwise Backward Elimination
+	\item Combination from both
+	\item Best-First: keeps calculation results for later recurrence
+	\item Beam Search: keeps constant number of most promising candidates
+	\item Genetic Algorithms: ''evolution'' by any number of permutations
+\end{itemize}
+\end{breakbox}
+
+
+\begin{breakbox}
+\boxtitle{Binning:}
 
 Given: list with visitors' ages:
 
@@ -26,7 +72,7 @@ Given: list with visitors' ages:
 \end{center}
 
 \begin{breakbox}
-\boxtitle{Equidepth}
+\boxtitle{Equidepth:}
 Each bin should just hold 3 distinct values. $12/3=4$ since all bins should have the same size. Naming the bins is optional.
 
 \begin{itemize}
@@ -36,11 +82,12 @@ Each bin should just hold 3 distinct values. $12/3=4$ since all bins should have
 \end{itemize}
 
 The objective is to sort the unknown instances. In the end, determining the bin boundaries is important, not the location of the training set's instances! So it does not matter that the two $22$ values are in different bins.
-
 \end{breakbox}
 
+
+
 \begin{breakbox}
-\boxtitle{Equiwidth}
+\boxtitle{Equiwidth:}
 Each bin should have the same interval width, again 3 bins.  Range from $7$ to $64 \implies$ $(64-7)/3=19$. One bin is exactly 19 years wide, except the last one which contains 20 items.
 
 \begin{itemize}
@@ -63,13 +110,13 @@ Grouping unknown instances:
 \end{tabular}
 
 The two last entries are outside of the training set's value domain so the most fitting discrete value is assigned.
-
 \end{breakbox}
 
-\begin{breakbox}
-\boxtitle{Confusion Matrix}
 
-c=child, y=youth, a=adult
+
+\begin{breakbox}
+\boxtitle{Confusion Matrix:}
+ch=child, yth=youth, ad=adult
 
 \begin{tabular}{l|l|l||l|l|l}
 \textbf{G} & \textbf{Age} & \textbf{R} & \textbf{G} & \textbf{Age} & \textbf{R} \\
@@ -109,7 +156,9 @@ Given rules and which instances they classify:
 \end{enumerate}
 
 Confusion matrix formed by the above rules for the test set.
-\includegraphics[width=.16\textwidth]{slides_images/confusion_matrix_theme_park}
+\begin{center}
+	\includegraphics[width=.15\textwidth]{slides_images/confusion_matrix_theme_park}
+\end{center}
 
 Indicators:
 
@@ -137,8 +186,127 @@ Indicators:
 	\item Precision = TP/(TP+FP) = $4/(4+1)=0.8$
 	\item Recall = TP/(TP+FN) = $4/(4+2)=0.67$
 \end{itemize}
+\end{breakbox}
 
 
+
+\begin{breakbox}
+\boxtitle{F-Measure:}
+
+Combines weighted average from both in just one indicator:
+
+\begin{center}
+$2 \cdot \frac{Precision \cdot Recall}{Precision + Recall} = \frac{2TP}{2TP + FN + FP} $ 
+\end{center}
+
+F-measure reaches its best value at 1 and worst at 0.
+\end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{Cross-Validation:}
+
+Trainings and test set are mostly limited available. Cross-validation helps to create more training data.
+
+\begin{itemize}
+	\item split training set in k partitions of roughly the same size
+	\item build model k times
+		\begin{itemize}
+			\item each time another partition is taken as hold-out (i.e. test set)
+			\item Hold out: keep a certain portion of available data for testing. The model is then built on the remaining data and tested with the hold out.
+			\item the remaining partitions together are the training set
+		\end{itemize}
+	\item image with 3-fold ''cross-validation'' 
+\end{itemize}
+
+\begin{center}
+	\includegraphics[width=.065\textwidth]{slides_images/cross_validation}
+\end{center}
+
+
+The \textbf{repeated} crosss-validation repeat the cross-validation n times. Each time the data is split into k different partitions to make sure not being misled by some accidental odd distribution of data. Best practice: n=10 so 100 different models are ''learned''. Image with n=3.
+
+\begin{center}
+	\includegraphics[width=.08\textwidth]{slides_images/repeated_cross_validation}
+\end{center}
+
+\textbf{Stratified} (=geschichtet) cross-validation: Class distribution within training and test sets impacts prediction quality. So the overall class distribution is to be maintained in each partition for every split.
+
+\begin{center}
+	\includegraphics[width=.07\textwidth]{slides_images/stratified_cross_validation}
+\end{center}
+\end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{Chi squared test}
+
+Proof or disproof that two variables are independent. Correlation/lift only measures linear dependencies, $\chi ^2$ also non-linear. If error surmounts a given threshold then there is a dependency.
+\begin{center}
+	$\chi ^2 = \sum_{i}{} \sum_{j}{} \frac{(observed_{ij} - expected_{ij})^2}{expected_{ij}}$
+\end{center}
+
+\begin{center}
+	\includegraphics[width=.15\textwidth]{slides_images/chi_squared_test_example}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=.15\textwidth]{slides_images/chi_squared_test_canteen_numbers}
+\end{center}
+
+For a significance level of 0.001 (probability of error is 1 per mille and for a degree of freedom=1 (applies for 2 classes per attribuite). This results in a max. treshold $\chi^2 = 10.83$ so the above attributes ''going to canteen'' and ''studying cs'' are dependent.
+\end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{Cluster Quality Measures:}
+
+\begin{itemize}
+	\item Compactness
+		\begin{itemize}
+			\item instances in a distinct cluster are close to each other
+			\item = itraclass similarity is high		
+	\end{itemize}				
+	\item Separation
+		\begin{itemize}
+			\item clusters are well apart from each other
+			\item = interclass dissimilarity is high
+		\end{itemize}
+\end{itemize}
+
+\textbf{Compactness:} Measuring distances inside clusters with $x_i$: instance i of a cluster, $n$: number of instances in a cluster, $c$: cluster center:
+\begin{itemize}
+	\item Cluster density
+		\begin{itemize}
+			\item average distance of instances in one cluster
+			\item $\frac{1}{n} \cdot \sum_{1}^{n}(x_i - c)$ 
+		\end{itemize}
+	\item Variance
+		\begin{itemize}
+			\item if low: instances concentrate around center
+			\item $\sum_{1}^{n}(x_i - c)^2$
+		\end{itemize}
+	\item Average variance
+		\begin{itemize}
+			\item takes into account cluster size
+			\item $\frac{1}{n} \cdot \sum_{1}^{n}(x_i - c)^2$ 
+		\end{itemize}
+\end{itemize}
+
+\textbf{Separation:} Measuring distance between clusters:
+\begin{itemize}
+	\item Single linkage: distance between the two closest instances from two different clusters
+	\item Complete linkage: distance between two most distant instances
+	\item Average linkage: average distance between all instances (each instance of one cluster to every instance from other one)
+	\item Distance of cluster centers
+\end{itemize}
+
+\begin{center}
+	\includegraphics[width=.15\textwidth]{slides_images/cluster_distance_measurements_separation}
+\end{center}
 
 \end{breakbox}
 
