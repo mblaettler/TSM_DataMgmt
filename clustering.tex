@@ -64,26 +64,26 @@ Jaccard coefficient is like a distance: $d=\frac{0+1}{5-3} = \frac{1}{2}$
 
 
 
-\begin{breakbox}
-\boxtitle{Approaches for Outlier Detection:}
-
-\begin{itemize}
-	\item Statistical Distribution-Based Outlier Detection
-		\begin{itemize}
-			\item assuming that attribute values answer to statistical measures, e.g. an overlap of Gaussian distributions
-			\item if probability of distribution membership is very low $\implies$ outlier		
-		\end{itemize}
-	\item Density-Based Outlier Detection
-		\begin{itemize}
-			\item most attribute values of all other instances are beyond a pre-defined minimum distance $\implies$ outlier
-		\end{itemize}
-	\item Deviation-Based Outlier Detection
-		\begin{itemize}
-			\item Definition of a total dissimilarity measure for all instances		
-			\item if an instance's exclusion reduces dissimilarity significantly $\implies$ outlier
-		\end{itemize}
-\end{itemize}
-\end{breakbox}
+%\begin{breakbox}
+%\boxtitle{Approaches for Outlier Detection:}
+%
+%\begin{itemize}
+%	\item Statistical Distribution-Based Outlier Detection
+%		\begin{itemize}
+%			\item assuming that attribute values answer to statistical measures, e.g. an overlap of Gaussian distributions
+%			\item if probability of distribution membership is very low $\implies$ outlier		
+%		\end{itemize}
+%	\item Density-Based Outlier Detection
+%		\begin{itemize}
+%			\item most attribute values of all other instances are beyond a pre-defined minimum distance $\implies$ outlier
+%		\end{itemize}
+%	\item Deviation-Based Outlier Detection
+%		\begin{itemize}
+%			\item Definition of a total dissimilarity measure for all instances		
+%			\item if an instance's exclusion reduces dissimilarity significantly $\implies$ outlier
+%		\end{itemize}
+%\end{itemize}
+%\end{breakbox}
 
 
 
@@ -143,40 +143,40 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 
 
 
-\begin{breakbox}
-\boxtitle{COBWEB Hierarchical Clustering:}
-
-\begin{itemize}
-	\item Instances get allocated, one by one, to a tree structure
-	\item the tree's leaves are the clusters
-	\item operations for allocating the next instance
-		\begin{itemize}
-			\item insert into a certain leaf
-			\item append a new leaf
-			\item merge two leaves
-			\item split a leaf in two
-		\end{itemize}
-	\item which operation is executed is determined by a ''quality measure''
-\end{itemize}
-
-Try to maximize category utility (CU):
-
-Rewards:
-\begin{itemize}
-	\item \textbf{inter}class \textbf{dis}similarity (distinction between clusters)
-	\item \textbf{intra}class similarity (likeness inside a cluster)
-	\item small number of clusters (leaves)
-\end{itemize}
-
-Maximizes probability that
-\begin{itemize}
-	\item attribuite values concentrate in a certain cluster
-	\item instances with a certain attribute value concentrate in a certain cluster
-\end{itemize}
-
-Operation with highest CU is executed and the tree strucure is adjusted accordingly.
-
-\end{breakbox}
+%\begin{breakbox}
+%\boxtitle{COBWEB Hierarchical Clustering:}
+%
+%\begin{itemize}
+%	\item Instances get allocated, one by one, to a tree structure
+%	\item the tree's leaves are the clusters
+%	\item operations for allocating the next instance
+%		\begin{itemize}
+%			\item insert into a certain leaf
+%			\item append a new leaf
+%			\item merge two leaves
+%			\item split a leaf in two
+%		\end{itemize}
+%	\item which operation is executed is determined by a ''quality measure''
+%\end{itemize}
+%
+%Try to maximize category utility (CU):
+%
+%Rewards:
+%\begin{itemize}
+%	\item \textbf{inter}class \textbf{dis}similarity (distinction between clusters)
+%	\item \textbf{intra}class similarity (likeness inside a cluster)
+%	\item small number of clusters (leaves)
+%\end{itemize}
+%
+%Maximizes probability that
+%\begin{itemize}
+%	\item attribuite values concentrate in a certain cluster
+%	\item instances with a certain attribute value concentrate in a certain cluster
+%\end{itemize}
+%
+%Operation with highest CU is executed and the tree strucure is adjusted accordingly.
+%
+%\end{breakbox}
 
 
 
