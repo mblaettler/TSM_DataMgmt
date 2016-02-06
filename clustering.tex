@@ -145,6 +145,37 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 
 \begin{breakbox}
 \boxtitle{COBWEB Hierarchical Clustering:}
+
+\begin{itemize}
+	\item Instances get allocated, one by one, to a tree structure
+	\item the tree's leaves are the clusters
+	\item operations for allocating the next instance
+		\begin{itemize}
+			\item insert into a certain leaf
+			\item append a new leaf
+			\item merge two leaves
+			\item split a leaf in two
+		\end{itemize}
+	\item which operation is executed is determined by a ''quality measure''
+\end{itemize}
+
+Try to maximize category utility (CU):
+
+Rewards:
+\begin{itemize}
+	\item \textbf{inter}class \textbf{dis}similarity (distinction between clusters)
+	\item \textbf{intra}class similarity (likeness inside a cluster)
+	\item small number of clusters (leaves)
+\end{itemize}
+
+Maximizes probability that
+\begin{itemize}
+	\item attribuite values concentrate in a certain cluster
+	\item instances with a certain attribute value concentrate in a certain cluster
+\end{itemize}
+
+Operation with highest CU is executed and the tree strucure is adjusted accordingly.
+
 \end{breakbox}
 
 
