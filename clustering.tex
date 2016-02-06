@@ -21,7 +21,12 @@
 	\item clusters are heavily impacted by outliers
 \end{itemize}
 
-k-medoid uses always a cluster medoid (center is a always an instance, not a non-existing mean point). The ''most central'' instance becomes the new cluster center. More robust regarding outliers.
+k-medoid uses always a cluster medoid (center is a always an instance, not a non-existing mean point). The ''most central'' instance becomes the new cluster center. More robust regarding outliers. Center is chosen as the instance with the lowest costs (error) if this instance is chosen.
+
+E = total error of allocation, $C_j$ is cluster j with center $c_j$ and $p$ any non-center instance.
+\begin{center}
+	$E=\sum_{j=1}^{k} \sum_{p \in C_j}^{} |p-c_j|$
+\end{center}
 
 \end{breakbox}
 
