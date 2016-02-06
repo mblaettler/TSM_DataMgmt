@@ -99,6 +99,27 @@
 %\end{itemize}
 %\end{breakbox}
 
+%\begin{breakbox}
+%\boxtitle{Prepruning:}
+%\newline Stop construction before split is executed:
+%\begin{itemize}
+%	\item do not develop certain branches.
+%	\item nodes are set to leafs though not homogenous yet.
+%\end{itemize}%Executed during tree construction:
+%\begin{itemize}
+%	\item e.g.: information gain achieved by a certain split does not surmount a pre-defined threshold $\rightarrow$ split is omitted.
+%\end{itemize}
+%\end{breakbox}
+
+%\begin{breakbox}
+%\boxtitle{Postpruning:}
+%\begin{itemize}
+%	\item reverse splits
+%	\item execution after full development of tree
+%	\item merging of child nodes (e.g.: calculate the tree's error rate (incorrectly classified instances / all instances) if child nodes would be merged. If rate is below pre-defined threshold then merge (i.e. eliminate the sub-tree)).
+%\end{itemize}
+%\end{breakbox}
+
 \begin{breakbox}
 \boxtitle{Naïve Bayes:}
 \newline \textcolor{Emerald}{A-Priori Probability:}
@@ -138,27 +159,3 @@ P(Country W | Developing country) $\cdot$ P(Developing country):
 \end{itemize}
 So country W is definitely a newly industrialized country (at least according to Bayes).
 \end{breakbox}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
