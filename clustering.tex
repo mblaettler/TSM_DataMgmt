@@ -112,8 +112,8 @@ Jaccard coefficient is like a distance: $d=\frac{0+1}{5-3} = \frac{1}{2}$
 
 Goal: maximize the probability of a cluster allocation. To that end we maximize the product from the following probabilities:
 \begin{itemize}
-	$p(A)$: Cluster A's proportion of the total set of instances or probability for any instance to be in Cluster A.
-	$p(x_i|A)$: probability for $x_i$ to be in Cluster A.
+	\item $p(A)$: Cluster A's proportion of the total set of instances or probability for any instance to be in Cluster A.
+	\item $p(x_i|A)$: probability for $x_i$ to be in Cluster A.
 \end{itemize}
 
 Bayes' theorem: $p(A|x_i) = \frac{p(x_i|A) \cdot p(A)}{p(x_i)}$
@@ -154,16 +154,22 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 \textbf{DEN}sity-based \textbf{CLU}st\textbf{E}ring: Each function has a influence function. Influence is high at the instance's location and diminishes with growing distance.
 
 \begin{center}
-	\includegraphics[width=.15\textwidth]{slides_images/denclue_data_table}
+	\includegraphics[width=.07\textwidth]{slides_images/denclue_data_table}
 \end{center}
 
-Influence function is square wave:
+Influence function is square wave is given as:
 
 \begin{center}
 	$f_{\text{Square}} (x,y) = \begin{cases} 
-    	  0 \text{if} d(x,y) > \sigma \\
-	      1 \text{if} d(x,y) \leq \sigma
+    	  0 \text{ if} d(x,y) > \sigma \\
+	      1 \text{ if} d(x,y) \leq \sigma
 	   \end{cases}$
+\end{center}
+
+Determine $\sigma$ as well as in order to get exactly two clusters (each covering some instances)
+
+\begin{center}
+	\includegraphics[width=.15\textwidth]{slides_images/denclue_cluster}
 \end{center}
 
 \end{breakbox}
