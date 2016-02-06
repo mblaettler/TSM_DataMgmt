@@ -153,6 +153,22 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 \boxtitle{DENCLUE:}
 \textbf{DEN}sity-based \textbf{CLU}st\textbf{E}ring: Each function has a influence function. Influence is high at the instance's location and diminishes with growing distance.
 
+Two parameters:
+\begin{itemize}
+	\item $\sigma$
+		\begin{itemize}
+			\item control the range of an influence function
+			\item the higher $\sigma$ the more overlap of influence functions
+		\end{itemize}
+	\item $\xi$
+		\begin{itemize}
+			\item threshold for influence considerations
+			\item  kind of a ''water level'': only areas with
+sufficient influence rise above the level and show as clusters
+			\item the higher $\xi$ the smaller get cluster areas
+		\end{itemize}
+\end{itemize}
+
 \begin{center}
 	\includegraphics[width=.07\textwidth]{slides_images/denclue_data_table}
 \end{center}
@@ -166,11 +182,18 @@ Influence function is square wave is given as:
 	   \end{cases}$
 \end{center}
 
-Determine $\sigma$ as well as in order to get exactly two clusters (each covering some instances)
+Determine $\sigma$ as well as $\xi$ in order to get exactly two clusters (each covering some instances).
+
+\begin{itemize}
+	\item Two clusters means that a cluster should show where the instances E / C / J are located, but no cluster with F / I / B. This implies that some areas at E / C / J are "higher" than the most elevated spot at F / I / B. This can only be the case for 1 $\leq \sigma \le 2$
+	\item $\xi$ then has to be greater than 2 and less than 3 in order to let F / I / B be ''swallowed by the
+tide'' while E / C / J still rises ''above the flood''.
+\end{itemize}
 
 \begin{center}
 	\includegraphics[width=.15\textwidth]{slides_images/denclue_cluster}
 \end{center}
 
+\textbf{Instances that are part of a cluster:}
+With $2 \le \xi \le 3$, cluster areas need the influence functions of at least 3 instances at the same time to surmount $\xi$. Since $\sigma$ is less than 2 all instances in such cluster areas have to have 2 other instances nearer than distance 2 (only two other instances because each instance's own influence counts as well). This is only the case for instances \textbf{A, C, G, H}. D has only influence from A, but not from G ($\sigma$ is less than 2!). The same applies to E and J.
 \end{breakbox}
-
