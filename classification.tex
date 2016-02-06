@@ -1,0 +1,51 @@
+
+\section{Classification}
+
+\begin{breakbox}
+\boxtitle{ID3-Algorithm:}
+\begin{enumerate}
+	\item Start with root node where no attribute is assigned yet. Root node contains full set of training instances.
+	\item Identify individual classes and determine distribution of classes over instances.
+	\item Calculate information content of current node (see below).
+	\item Choose remaining attribute (not examined yet on path between current node of tree and root node). If no attributes left $\rightarrow$ exit.
+	\item Determine attribute's value domain. Create preliminary child node for each distinct value.
+	\item Partition set of instances (i.e. assign them to individual child nodes).
+	\item Determine distribution of classes for each partition (child node).
+	\item Calculate entropy of child nodes (see below).
+	\item Calculate information gain (see below).
+	\item If attributes left for examinig $\rightarrow$ go to 4.
+	\item Select attribute with highest information gain. Insert it into current tree node. This attribute will not be considered any more in dependent sub-trees.
+	\item Append attribute's child nodes to current tree node.
+	\item Go to leftmost child node which is neither leaf nor has fully developed subtree structure. If there is none $\rightarrow$ go to next sibling node which is no leaf. If there is none either $\rightarrow$ go to parent node. If parent node is root node $\rightarrow$ exit, else repeat 13.
+	\item Go to 4.
+\end{enumerate}
+
+\begin{breakbox}
+\boxtitle{Calculate information content:}
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/information_content}
+\includegraphics[width=.15\textwidth]{slides_images/information_content_example}
+\end{center}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Calculate entropy:}
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/entropy}
+\includegraphics[width=.15\textwidth]{slides_images/entropy_example}
+\end{center}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Calculate information gain:}
+\newline Gain = info[parent node] - E[child node]
+\end{breakbox}
+
+%\begin{breakbox}
+%\boxtitle{Approximate values for $x log_2(x)$:}
+%\begin{center}
+%\includegraphics[width=.15\textwidth]{slides_images/log_values}
+%\end{center}
+%\end{breakbox}
+\end{breakbox}
+
