@@ -121,7 +121,7 @@ Pro ODBMS
 	\item Rollback: \lstinline[language=Java]{database.rollback(); database.ext().refresh(article, Integer.MAX_VALUE);}
 	\item Index: B-Tree on single attribute
 		\begin{itemize}
-			\item \lstinline[language=Java]{Db4o.configure().objectClass(...).obj ectField(...).indexed(true);}
+			\item \lstinline[language=Java]{EmbeddedConfiguration config = Db4oEmbedded.newConfiguration(); config.common().objectClass(Author.class).objectField("name").indexed(true);}
 			\item Indexes are created when class is used for first time; then the index is kept (v.8).
 		\end{itemize}
 \end{itemize}
@@ -177,27 +177,3 @@ The \lstinline[language=Java]{.not()} could also be:
 		\end{itemize}
 \end{itemize}
 \end{breakbox}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
