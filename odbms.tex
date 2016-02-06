@@ -2,7 +2,7 @@
 \section{ODBMS}
 
 \begin{breakbox}
-\textbf{Manifesto:}
+\boxtitle{Manifesto:}
 \newline Object-oriented systems
 \begin{enumerate}
 	\item Complex objects
@@ -26,7 +26,7 @@ Database management systems
 \end{breakbox}
 
 \begin{breakbox}
-\textbf{Advantages RDBMS / ODBMS:}
+\boxtitle{Advantages RDBMS / ODBMS:}
 \newline Pro RDBMS
 \begin{itemize}
 	\item Neutral form of data, different views
@@ -48,20 +48,124 @@ Pro ODBMS
 \end{breakbox}
 
 \begin{breakbox}
-\textbf{Products:}
+\boxtitle{ODBMS Products:}
 \begin{itemize}
 	\item Caché, db4o (C\#, Java), Versant (C++, Java), ObjectivityDB (C++), ObjectStore (C++)
 \end{itemize}
 \end{breakbox}
 
 \begin{breakbox}
-\textbf{db4o Features:}
+\boxtitle{db4o Features:}
 \begin{itemize}
-	\item No annotations in classes
+	\item No modification on classes
+	\item Simple one liner to store objects and collections
 	\item Local and Client/Server
-	\item ACID
-	\item Object caching, garbage collection
+	\item ACID transaction model
+	\item Object caching, integration with Garbage Collector
 	\item Automated schema evolution
+	\item Java und .NET Language Binding
+	\item Small “Memory foot-print” (one library 500Kb)
 	\item Faster than MySQL, OR Mapper (50x?)
 \end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Object Container:}
+\begin{itemize}
+	\item Represents db4o DB.
+	\item Manages a transaction
+		\begin{itemize}
+			\item All operations in one (nested) transaction.
+			\item Transaction starts implicitly when object container is opened.
+			\item After commit/rollback autom. next transaction.
+		\end{itemize}
+	\item Manages references to stores and instantiated (transient) objects (incl. object identity).
+	\item Life cycle:
+		\begin{itemize}
+			\item Object container open as long as programm runs.
+			\item When Object container is closed, references to objects in memory are thrown away.
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Object Container Code:}
+\java{java_code/object_container.java}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Operations:}
+\begin{itemize}
+	\item Store: \lstinline[language=Java]{database.store(object);}
+		\begin{itemize}
+			\item Object graph is being traversed and all referenced objects are made persistent.
+			\item Stored whole object (deep copy).
+			\item Persistence by reachability!
+		\end{itemize}
+	\item Retrieve: query by example, native query, SODA query (see below).
+	\item Update: again use \lstinline[language=Java]{database.store(object);}
+		\begin{itemize}
+			\item Default for update depth is 1 (= shallow copy).
+			\item Thus only basic types and Strings are updated.
+			\item Object graph not being traversed (performance!).
+			\item Cascading update can be configured per class.
+			\item \lstinline[language=Java]{Db4o.configure().objectClass(Person.class).cascadeOnUpdate(true);}
+		\end{itemize}
+	\item Delete: \lstinline[language=Java]{database.delete(object);}
+		\begin{itemize}
+			\item Delete does not cascade by default.
+			\item Referenced objects need to be deleted by hand.
+			\item Cascading delete can be configured per class.
+			\item \lstinline[language=Java]{Db4o.configure().objectClass(Author.class).cascadeOnDelete(true);}
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Update object:}
+\java{java_code/update.java}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Query By Example:}
+\java{java_code/query_by_example.java}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Native Query:}
+\java{java_code/native_query.java}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o SODA Query:}
+\java{java_code/soda_query.java}
+The \lstinline[language=Java]{.not()} could also be:
+\begin{itemize}
+	\item \lstinline[language=Java]{.and(Constraint);}
+	\item \lstinline[language=Java]{.or(Constraint);}
+	\item \lstinline[language=Java]{.greater();}
+\end{itemize}
+\end{breakbox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
