@@ -118,6 +118,12 @@ Pro ODBMS
 			\item Cascading delete can be configured per class.
 			\item \lstinline[language=Java]{Db4o.configure().objectClass(Author.class).cascadeOnDelete(true);}
 		\end{itemize}
+	\item Rollback: \lstinline[language=Java]{database.rollback(); database.ext().refresh(article, Integer.MAX_VALUE);}
+	\item Index: B-Tree on single attribute
+		\begin{itemize}
+			\item \lstinline[language=Java]{Db4o.configure().objectClass(...).obj ectField(...).indexed(true);}
+			\item Indexes are created when class is used for first time; then the index is kept (v.8).
+		\end{itemize}
 \end{itemize}
 \end{breakbox}
 
@@ -146,6 +152,32 @@ The \lstinline[language=Java]{.not()} could also be:
 	\item \lstinline[language=Java]{.greater();}
 \end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+\boxtitle{db4o Activation:}
+\begin{itemize}
+	\item Controls instantiation of object and its attribute values
+	\item Objects / attribute values are only loaded into memory to a certain depth
+		\begin{itemize}
+			\item Depth: Length of reference chain between objects
+			\item Attributes beyong this activation depth are null basic types), resp. default
+			\item Default is 5
+		\end{itemize}
+	\item Activation is done
+		\begin{itemize}
+			\item with next() on ObjectSet of a query
+			\item with activate() (Class ObjectContainer)
+			\item through access on an element of a db4o collection
+			\item through activation of a (whole) Java collection
+		\end{itemize}
+	\item Management
+		\begin{itemize}
+			\item not loaded attribute values use Weak References
+			\item inactive objects through Mapping Table
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
 
 
 
