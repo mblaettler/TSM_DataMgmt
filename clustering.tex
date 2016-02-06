@@ -141,6 +141,30 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 \end{breakbox}
 
 
+
+
 \begin{breakbox}
 \boxtitle{COBWEB Hierarchical Clustering:}
 \end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{DENCLUE:}
+\textbf{DEN}sity-based \textbf{CLU}st\textbf{E}ring: Each function has a influence function. Influence is high at the instance's location and diminishes with growing distance.
+
+\begin{center}
+	\includegraphics[width=.15\textwidth]{slides_images/denclue_data_table}
+\end{center}
+
+Influence function is square wave:
+
+\begin{center}
+	$f_{\text{Square}} (x,y) = \begin{cases} 
+    	  0 \text{if} d(x,y) > \sigma \\
+	      1 \text{if} d(x,y) \leq \sigma
+	   \end{cases}$
+\end{center}
+
+\end{breakbox}
+
