@@ -1,14 +1,14 @@
 \section{Clustering}
 
 \begin{breakbox}
-\boxtitle{Distance of Binary Data}
+\boxtitle{Distance of Binary Data:}
 Distance cannot be calculated on ordinal or nominal scales.
 
 \begin{center}
 	\includegraphics[width=.15\textwidth]{slides_images/clustering_binary_distance.png}
 \end{center}
 
-Jaccard coefficient: $d=\frac{0+1}{5-3} = \frac{1}{2}$
+Jaccard coefficient is like a distance: $d=\frac{0+1}{5-3} = \frac{1}{2}$
 
 \end{breakbox}
 
@@ -29,6 +29,78 @@ Jaccard coefficient: $d=\frac{0+1}{5-3} = \frac{1}{2}$
 			\item rank nominal data by some order, e.g. gold, silver, bronze
 			\item calculate as usual, e.g. by Euclidean or Manhattan distance
 		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{Approaches for Outlier Detection:}
+
+\begin{itemize}
+	\item Statistical Distribution-Based Outlier Detection
+		\begin{itemize}
+			\item assuming that attribute values answer to statistical measures, e.g. an overlap of Gaussian distributions
+			\item if probability of distribution membership is very low $\implies$ outlier		
+		\end{itemize}
+	\item Density-Based Outlier Detection
+		\begin{itemize}
+			\item most attribute values of all other instances are beyond a pre-defined minimum distance $\implies$ outlier
+		\end{itemize}
+	\item Deviation-Based Outlier Detection
+		\begin{itemize}
+			\item Definition of a total dissimilarity measure for all instances		
+			\item if an instance's exclusion reduces dissimilarity significantly $\implies$ outlier
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+
+
+\begin{breakbox}
+\boxtitle{EM Algorithm}
+
+\textbf{E}xpectation-\textbf{maximization} algorithm for membership by probability. \textbf{Determines the number of clusters automatically!}
+
+\begin{center}
+	\includegraphics[width=0.15\textwidth]{slides_images/membership_by_probability_em}
+\end{center}
+
+\begin{itemize}
+	\item Initial guess of k distribution curves (=the model)
+		\begin{itemize}
+			\item random model parameters $\mu$ and $\sigma$
+		\end{itemize}
+	\item iteratively take 2 steps
+		\begin{enumerate}
+			\item Expectation: calculate ''expected'' cluster membership
+			\item Maximization: re-estimate model parameters (refine memberships)
+		\end{enumerate}
+	\item usage of a maximum likelihood (ML) function; describes the probability that instances belong to clusters
+	\item algorithm ends if function cannot be increased anymore
+\end{itemize}
+
+Goal: maximize the probability of a cluster allocation. To that end we maximize the product from the following probabilities:
+\begin{itemize}
+	$p(A)$: Cluster A's proportion of the total set of instances or probability for any instance to be in Cluster A.
+	$p(x_i|A)$: probability for $x_i$ to be in Cluster A.
+\end{itemize}
+
+Bayes' theorem: $p(A|x_i) = \frac{p(x_i|A) \cdot p(A)}{p(x_i)}$
+
+Do this for all clusters (an instance belongs to all clusters): $p(A) \cdot p(x_i|A) + p(B) \cdot p(x_i|B) + \cdots$
+
+For all instances (to asses overall model fitness), this is the maximum likelihood function and needs to be maximized:
+\begin{center}
+	$\prod_{i}{}(p(A) p(x_i|A) + p(B) p(x_i|B) + \cdots)$
+\end{center}
+
+\begin{itemize}
+	\item $p(A) \cdot p(x_i|A)$ is the expectation that $x_i$ is in cluster A
+	\item Summing up expectations for one instance $x_i$ over all clusters delivers the overall expectation that $x_i$ is in clusters at all (=1 is the ideal case)
+	\item The product from the ML function is the combined expectation of all instances $x_1, x_2, \cdots x_i$ belonging to clusters somewhere
+	\item Thus the ML function expresses the overall probability that instances are covered by clusters: Where are the clusters most likely to be?
+	\item Constantly improved with each iteration
 \end{itemize}
 
 \end{breakbox}
