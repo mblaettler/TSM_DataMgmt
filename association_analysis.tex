@@ -2,6 +2,36 @@
 \section{Association Analysis}
 
 \begin{breakbox}
+\boxtitle{Candidate Generation:}
+\begin{itemize}
+	\item Set minimum support.
+	\item Identify frequent 1-itemsets.
+	\item Combine to frequent multi-itemsets.
+	\item Build possible 2-itemsets.
+	\item Determine frequency of 2-itemsets.
+	\item non-frequent itemsets are eliminated.
+	\item Build possible 3-itemsets.
+	\item Candidate elimination.
+	\item Determine frequency of remaining candidates.
+	\item Build possible 4-itemsets, and so on \ldots
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{A-Priori Algorithm:}
+\begin{itemize}
+	\item Candidate generation (see above).
+	\item set minimum confidence $\gamma$.
+	\item for each frequent itemset: set up every possible combination as a rule.
+	\item calculate confidence for every rule.
+	\item select rules $\geq$ minimum confidence.
+\end{itemize}
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/a-priori}
+\end{center}
+\end{breakbox}
+
+\begin{breakbox}
 \boxtitle{FP Growth:}
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/fp_growth_data}
