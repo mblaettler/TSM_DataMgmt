@@ -1,6 +1,31 @@
 \section{Clustering}
 
 \begin{breakbox}
+\boxtitle{k-means:}
+
+\begin{enumerate}
+	\item Arbitrarily choose k instances
+	\item Define these instances as initial cluster centers
+	\item Determine each instance's distance to the cluster centers
+	\item Assign each instance to it's nearest cluster center
+	\item If no change in cluster allocation: \textbf{Exit}
+	\item Calculate the mean for each cluster:
+	$\frac{\text{sum of all x-coords of instances}}{\text{number of instances}} = \text{new x-coordinate}$
+	$\frac{\text{sum of all y-coords of instances}}{\text{number of instances}} = \text{new y-coordinate}$
+\end{enumerate}
+
+\textbf{Advantages/Disadvantages:}
+\begin{itemize}
+	\item Fast, converges easily (stops at local optimums)
+	\item result depends heavily on initialization
+	\item clusters are heavily impacted by outliers
+\end{itemize}
+
+k-medoid uses always a cluster medoid (center is a always an instance, not a non-existing mean point). The ''most central'' instance becomes the new cluster center. More robust regarding outliers.
+
+\end{breakbox}
+
+\begin{breakbox}
 \boxtitle{Distance of Binary Data:}
 Distance cannot be calculated on ordinal or nominal scales.
 
@@ -108,5 +133,9 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 	\item Evaluation of number of clusters k
 	\item Robust regarding outliers. An outlier would be allocated to every cluster but with very little probability. So the outlier has very little influence on model parameter adjsutment.
 \end{itemize}
+\end{breakbox}
 
+
+\begin{breakbox}
+\boxtitle{COBWEB Hierarchical Clustering:}
 \end{breakbox}
