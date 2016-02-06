@@ -58,7 +58,7 @@ Jaccard coefficient is like a distance: $d=\frac{0+1}{5-3} = \frac{1}{2}$
 
 
 \begin{breakbox}
-\boxtitle{EM Algorithm}
+\boxtitle{EM Algorithm:}
 
 \textbf{E}xpectation-\textbf{maximization} algorithm for membership by probability. \textbf{Determines the number of clusters automatically!}
 
@@ -101,6 +101,12 @@ For all instances (to asses overall model fitness), this is the maximum likeliho
 	\item The product from the ML function is the combined expectation of all instances $x_1, x_2, \cdots x_i$ belonging to clusters somewhere
 	\item Thus the ML function expresses the overall probability that instances are covered by clusters: Where are the clusters most likely to be?
 	\item Constantly improved with each iteration
+\end{itemize}
+
+\textbf{Advantages:}
+\begin{itemize}
+	\item Evaluation of number of clusters k
+	\item Robust regarding outliers. An outlier would be allocated to every cluster but with very little probability. So the outlier has very little influence on model parameter adjsutment.
 \end{itemize}
 
 \end{breakbox}
