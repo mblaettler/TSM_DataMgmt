@@ -104,6 +104,23 @@ To convert a table to XML:
 \sql{sql_code/xml_table_to_xml.sql}
 
 \sql{sql_code/xml_students.sql}
+\end{breakbox}
 
+\begin{breakbox}
+\boxtitle{JSON/JSONB:}
 
+Typical JSON document, can be nested (see address):
+\sql{sql_code/json_person_example.sql}
+
+\textbf{JSONB} (binary) has no duplicate keys and last key wins. Postgres uses a hashing function to store them in binary. Keys are sorted.
+\sql{sql_code/json_jsonb_example.sql}
+
+\textbf{Operators:}
+\sql{sql_code/json_operators.sql}
+
+\textbf{Functions:}
+	\begin{itemize}
+		\item array_to_json(anyarray), row_to_json(record), to_json(anyelement), json_array_length(json)
+		\item json_object_keys(json), json_array_elements(json) expands a JSON array to a set of JSON elements
+	\end{itemize}
 \end{breakbox}
