@@ -148,4 +148,42 @@ Boolean expression which most users find awkward
 \begin{breakbox}
 \boxtitle{Vector Space Model}
 
+Non-binary weights for partial matches and automatic ranking. Basic idea: represent documents and queries as vectors and calculate the vector similarities by the relationship between these two vectors. 
+
+\begin{center}
+	$\text{sim}(q, d_j) = \frac{\sum w_{ij}*w_{iq}}{|d_j| * |q|}$
+\end{center}
+Compute the weights with TF-IDF.
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{TF-IDF:}
+
+To compute the weights $w_{ij}$ and $w_{iq}$.
+
+\begin{center}
+	Term frequency: $tf_{i,j} = \frac{n_{ij}}{\sum_{k}{} n_{k,j}}$. 
+\end{center}
+
+Consider a document containing 500 words in which the word ''spaceship'' occurs 7 times. What is the term frequency (TF) for ''spaceship'? tf(''spaceship'')=$\frac{7}{500} = 0.014$
+
+\begin{center}
+	Document frequency: $idf_i = log \frac{|D|}{|{d:t_i \in d}|}$
+\end{center}
+
+We have 1 million documents in which ''spaceship'' appears in one thousand of these. What is the document frequency value for ''spaceship''? idf(''spaceship'')$=ln\frac{1000000}{1000}=6.9078$
+
+\begin{center}
+	(tf-idf)$_{i,j}	= tf_{i,j} \times idf_i$
+\end{center}
+TF-IDF score for spaceship for the document with 500 words: tf-idf(''spaceship'')$=0.014*6.9078=0.0967092$
+
+What would the TF-IDF value be if the word ''the'' occurred a hundred times in the same document (from above with 500 words) but also in $900000$ of all 1 million documents? What does this mean?
+
+\begin{itemize}
+	\item tf(''the'')$=100/500=0.2$, idf$=ln\frac{1000000}{900000}=0.105351$
+	\item tf-idf$=0.2*0.105351=0.02107$
+	\item A high weight in tf–idf is reached by a high term frequency (in the given document) and a low document frequency of the term in the whole collection of documents; the weights
+hence tend to filter out common terms. The tf-idf value for a term will always be greater than or equal to zero.
+\end{itemize}
 \end{breakbox}

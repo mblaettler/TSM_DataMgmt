@@ -9,7 +9,7 @@
 \end{center}
 Formula for storage (and query):
 \begin{center}
-$i_{1k} + (i_{2l-1}) \cdot |I_1| + (i_{3m}-1) \cdot |I_1| \cdot |I_2| + \cdots$,
+$i_{1k} + (i_{2l}-1) \cdot |I_1| + (i_{3m}-1) \cdot |I_1| \cdot |I_2| + \cdots$,
 \end{center}
 with $I_j =$ dimension $j$, $i_{jk} =$ index for $k^{th}$ element of dimension $j$.
 \end{breakbox}
@@ -90,7 +90,8 @@ Exercise: A page can hold 4 array cells.
 \begin{itemize}
 	\item faster computation.
 	\item efficiency sensitive to increase in data volume and dimensions.
-\end{itemize}ROLAP:
+\end{itemize}
+ROLAP:
 \begin{itemize}
 	\item larger amounts of data.
 	\item scalability.
@@ -105,7 +106,8 @@ Exercise: A page can hold 4 array cells.
 \begin{itemize}
 	\item depends on allocation rate of data in cube.
 	\item starts at certain thresholds.
-\end{itemize}Objective:
+\end{itemize}
+Objective:
 \begin{itemize}
 	\item combine advantages of MOLAP and ROLAP.
 \end{itemize}
@@ -122,10 +124,12 @@ Hybrid OLAP:
 \newline RDBS performance:
 \begin{itemize}
 	\item suffers most from joins of huge data sets.
-\end{itemize} Optimization objective:
+\end{itemize}
+ Optimization objective:
 \begin{itemize}
 	\item significantly reduce data sets by indexing.
-\end{itemize}Special indexes often applied with DWHs:
+\end{itemize}
+Special indexes often applied with DWHs:
 \begin{itemize}
 	\item Join Indexes.
 	\item Bitmap Indexes.
@@ -163,14 +167,16 @@ Physical extracts:
 \begin{itemize}
 	\item for performance reasons.
 	\item risk of losing hard coded information, e.g. pointers representing relationships.
-\end{itemize}Not all data is extracted:
+\end{itemize}
+Not all data is extracted:
 \begin{itemize}
 	\item selection specific to later analytical needs.
 \end{itemize}
 What data looks like:
 \begin{itemize}
 	\item lacking (not recorded, not entered).
-	\item contradictory (different understanding, e.g.in different source systems).
+	\item contradictory (different understanding, e.g.
+in different source systems).
 	\item on different scales.
 	\item redundancy.
 	\item noisy (random irregularities).
@@ -184,7 +190,8 @@ What data looks like:
 \newline i.e. data consolidation:
 \begin{itemize}
 	\item achieve a general level of data quality (across all source database systems)
-\end{itemize}No 1:1 copy of operational data:
+\end{itemize}
+No 1:1 copy of operational data:
 \begin{itemize}
 	\item aggregation
 	\item filtering
@@ -199,7 +206,8 @@ What data looks like:
 \newline Move into DWH:
 \begin{itemize}
 	\item sometimes preformatted to physical format.
-\end{itemize}Integrity checks
+\end{itemize}
+Integrity checks
 \begin{itemize}
 	\item before load
 	\item after load with respect to data already in DWH, e.g. for uniqueness.
