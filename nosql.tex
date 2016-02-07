@@ -121,19 +121,31 @@ One can only pick two of those properties at a time.
 			\item Slower inserts, faster queries.
 		\end{itemize}
 	\item Expression index for special queries:
+\end{itemize}
+\lstinputlisting[language=SQL, firstline=1, lastline=3]{sql_code/pg_jsonb.sql}
+\begin{itemize}
+	\item[]
 		\begin{itemize}
-			\item \lstinline[language=SQL]{CREATE INDEX on movies_jsonb((movie#>>'{actors,0,lastname)'));}
 			\item very fast queries on above attribute in WHERE-part.
+			\item[]
 		\end{itemize}
 	\item Standard GIN-index (jsonb\_ops):
+\end{itemize}
+\lstinputlisting[language=SQL, firstline=5, lastline=6]{sql_code/pg_jsonb.sql}
+\begin{itemize}
+	\item[]
 		\begin{itemize}
-			\item \lstinline[language=SQL]{CREATE INDEX idx_ops on movies_jsonb USING gin (movie);}
 			\item supports operators: @>, ?, ?\& and ?|
+			\item[]
 		\end{itemize}
 	\item Non-standard GIN-index (json\_path\_ops):
+\end{itemize}
+\lstinputlisting[language=SQL, firstline=8, lastline=9]{sql_code/pg_jsonb.sql}
+\begin{itemize}
+	\item[]
 		\begin{itemize}
-			\item \lstinline[language=SQL]{CREATE INDEX idx_path_ops on movies_jsonb USING gin (movie jsonb_path_ops);}
 			\item supports operator: @>
+			\item[]
 		\end{itemize}
 \end{itemize}
 \end{breakbox}
@@ -141,14 +153,14 @@ One can only pick two of those properties at a time.
 \begin{breakbox}
 \boxtitle{MongoDB:}
 \begin{itemize}
-	\item Stores documents in BSON.
+	\item Stores documents in BSON (binary).
 	\item Supports ad hoc queries against objects and arrays.
 	\item Scales horizontally via sharding.
-	\item Giery interface:
+	\item Replication with maser/slave model.
+	\item Schemaless (more flexibility)
+	\item Query interface:
 \end{itemize}
-\begin{center}
-	\includegraphics[width=.12\textwidth]{slides_images/mongo_db_query}
-\end{center}
+\lstinputlisting[language=Java]{sql_code/mongoDB.sql}
 \begin{itemize}
 	\item Indexes:
 		\begin{itemize}
@@ -156,6 +168,10 @@ One can only pick two of those properties at a time.
 			\item Multikey index (<field>: <1 or -1>)
 			\item Geospatial index
 			\item Text indexes, Hashed indexes
+			\item Unique indexes: Rejects duplicated entries
+			\item Sparse indexes: Contains a entry for documents with specific field only
+			\item TTL indexes: Define a time to live
+			\item Use case: Operational Intelligence (Storing Log data)
 		\end{itemize}
 \end{itemize}
 \end{breakbox}
@@ -184,9 +200,10 @@ One can only pick two of those properties at a time.
 \begin{itemize}
 	\item Eventually consistent
 	\item Designed for distributed databases
-	\item Optimized for ring shaped clusters
+	\item Nodes synchronize P2P instead of master-slave
 	\item Columns hold name, values and time stamp
 	\item Columns are sorted by key-name
+	\item Use cases: Internet of things, sensordata, product catalogues, playlists, messaging, chats, social media
 \end{itemize}
 \end{breakbox}
 
@@ -195,6 +212,8 @@ One can only pick two of those properties at a time.
 \begin{itemize}
 	\item In-memory database supporting disk-based column stores
 	\item reference tables / shard tables
+	\item Multiversion cuncurrency control (MVCC)
+	\item Just-In-Time Compiler for SQL (SQL to C++)
 	\item Indexes:
 		\begin{itemize}
 			\item Skip lists (B-Tree)
@@ -202,6 +221,7 @@ One can only pick two of those properties at a time.
 			\item Hash table
 			\item Index commands: CREATE INDEX, DROP INDEX, SHOW INDEX, SHOW INDEXES, SHOW KEYS, EXPLAIN
 		\end{itemize}
+	\item Use cases: real time data analysis, lots of inserts and updates
 \end{itemize}
 \end{breakbox}
 
@@ -219,7 +239,11 @@ One can only pick two of those properties at a time.
 	\item Primary operation: Traversal
 	\item Disk-based
 	\item Scales to billions of nodes per JVM
-	\item Index: CREATE INDEX IN :Person(name)
+	\item Relations are persisted, which results in no joins
+\end{itemize}
+\lstinputlisting[language=SQL]{java_code/neo4j.java}
+\begin{itemize}
+	\item Use cases: real-time recommendation, master data management, graph-based search
 \end{itemize}
 \end{breakbox}
 
@@ -243,24 +267,43 @@ One can only pick two of those properties at a time.
 \end{itemize}
 \end{breakbox}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{breakbox}
+\boxtitle{Increase Performance:}
+\begin{enumerate}
+	\item Through hardware (HW) acceleration:
+		\begin{itemize}
+			\item offer good scalability
+			\item more expensive than shared-nothing on commodity HW
+			\item New HW: SSD, Memristors
+		\end{itemize}
+	\item Through parallelism:
+		\begin{itemize}
+			\item Distributed databases
+			\item Increase the I/O bandwidth
+			\item Data partitioning
+				\begin{itemize}
+					\item Vertical Partitioning / Fragmentation
+					\item Horizontal Partitioning / Fragmentation
+					\item Sharding:
+						\begin{itemize}
+							\item A form of horizontal partitioning
+							\item Places shared data on every node
+							\item Typically lookup, dimension, or fact tables
+							\item Challenge: How to update this shared data
+						\end{itemize}
+				\end{itemize}
+			\item Parallel data access
+			\item Parallel vs. Distributed database system
+			\item Shared nothing / Shared disc / Shared memory
+			\item Data placement
+			\item Parallel data processing
+			\item Parallel query optimization
+			\item Transaction management
+		\end{itemize}
+	\item Through software
+		\begin{itemize}
+			\item Vertical partitioning via column-oriented database architectures
+			\item Compression-aware databases
+		\end{itemize}
+\end{enumerate}
+\end{breakbox}
