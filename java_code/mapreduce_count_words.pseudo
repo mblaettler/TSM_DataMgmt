@@ -1,0 +1,11 @@
+// key: doc name, value: content
+map(String key, String value):
+for each word w in value:
+  EmitIntermediate(w, "1");
+  
+  // key: a word, values: a list of counts
+reduce(String key, Iterator values):
+int result = 0;
+for each v in values:
+  result += ParseInt(v);
+Emit(AsString(result));
