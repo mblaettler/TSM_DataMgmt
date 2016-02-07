@@ -76,7 +76,7 @@ Not Retrieved & False neg. (fn) & True neg. (tn) \\
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Serch Engine Types:}
+\boxtitle{Search Engine Types:}
 \begin{itemize}
 	\item General purpose, horizontal SE
 	\item Specialized SE:
@@ -157,7 +157,21 @@ Not Retrieved & False neg. (fn) & True neg. (tn) \\
 
 \begin{breakbox}
 \boxtitle{Page Ranking Example:}
-
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/page_rank_pages}
+\end{center}
+Draw graph according to hyperlinks:
+\newline \includegraphics[width=.03\textwidth]{slides_images/page_rank_graph}
+\newline Calculate hyperlink matrix:
+H = \[ \left( \begin{array}{cccc}
+0 & 1/2 & 1/3 & 0 \\
+1 & 0 & 1/3 & 0 \\
+0 & 1/2 & 0 & 1 \\
+0 & 0 & 1/3 & 0 \end{array} \right)\]
+Multiply matrix with initial PageRank Vector until convergence sets in (e.g.):
+\begin{center}
+\includegraphics[width=.15\textwidth]{slides_images/page_rank_calc}
+\end{center}
 \end{breakbox}
 
 
