@@ -124,3 +124,24 @@ Typical JSON document, can be nested (see address):
 		\item json\_object\_keys(json), json\_array\_elements(json) expands a JSON array to a set of JSON elements
 	\end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Traversing Graph With CTE:}
+\sql{sql_code/cte_graph_traversal.sql}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Key Value Pairs (hstore):}
+
+''RDBMS are designed for consistency and efficiency. By using KVP schema you throw the retrieval capability down the drain!''
+
+Possibly suitable for
+\begin{itemize}
+	\item Easy data storage and data capture
+	\item Rows with many attributes that are rarely examined
+	\item Semi-structured data
+\end{itemize}
+
+\sql{sql_code/hstore_examples.sql}
+
+\end{breakbox}
