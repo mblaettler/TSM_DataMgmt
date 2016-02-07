@@ -160,6 +160,58 @@ One can only pick two of those properties at a time.
 \end{itemize}
 \end{breakbox}
 
+\begin{breakbox}
+\boxtitle{Column Oriented Databases:}
+\begin{itemize}
+	\item Wide Column Stores
+	\item Each key is associated with multiple attributes
+	\item Examples: HBase, Cassandra
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{HBase:}
+\begin{itemize}
+	\item Layered over Hadoop Distributed File System $\Rightarrow$ highly distributed.
+	\item RESTful API
+	\item Input/Output for MapReduce Jobs
+	\item Automatic partitioning, re-balancing
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Cassandra:}
+\begin{itemize}
+	\item Eventually consistent
+	\item Designed for distributed databases
+	\item Optimized for ring shaped clusters
+	\item Columns hold name, values and time stamp
+	\item Columns are sorted by key-name
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{MemSQL:}
+\begin{itemize}
+	\item In-memory database supporting disk-based column stores
+	\item reference tables / shard tables
+	\item Indexes:
+		\begin{itemize}
+			\item Skip lists (B-Tree)
+			\item Column store
+			\item Hash table
+			\item Index commands: CREATE INDEX, DROP INDEX, SHOW INDEX, SHOW INDEXES, SHOW KEYS, EXPLAIN
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+
+
+
+
+
+
+
 
 
 
