@@ -57,7 +57,7 @@ Not Retrieved & False neg. (fn) & True neg. (tn) \\
 \begin{breakbox}
 \boxtitle{Precision/Recall Curve:}
 \begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/precision_recall_curve}
+\includegraphics[width=.1\textwidth]{slides_images/precision_recall_curve}
 \end{center}
 \end{breakbox}
 
@@ -75,8 +75,90 @@ Not Retrieved & False neg. (fn) & True neg. (tn) \\
 \end{itemize}
 \end{breakbox}
 
+\begin{breakbox}
+\boxtitle{Serch Engine Types:}
+\begin{itemize}
+	\item General purpose, horizontal SE
+	\item Specialized SE:
+		\begin{itemize}
+			\item Vertical SE (by region, by topic, etc.)
+			\item Deep Web
+		\end{itemize}
+	\item Meta-Search engines
+\end{itemize}
+\end{breakbox}
 
+\begin{breakbox}
+\boxtitle{The Web Document Collection:}
+\begin{itemize}
+	\item No design/co-ordination.
+	\item Distributed content creation, linking, democratization of publishing.
+	\item Content includes truth, lies, obsolete information, contradictions...
+	\item Unstructured (text, html, ...), semi-structured (XML, annotated photos), structured (Databases)...
+	\item Scale much larger than previous text collections ... but corporate records are catching up.
+	\item Content can be dynamically generated.
+\end{itemize}
+\end{breakbox}
 
+\begin{breakbox}
+\boxtitle{Random Walks:}
+\begin{itemize}
+	\item View Web as directed graph.
+	\item Build random walk on this graph:
+		\begin{itemize}
+			\item Includes various jump rules back to visited sites.
+			\item Converges to a stationary distribution (Must assume graph is finite and time to convergence not really known).
+			\item Use the strong query”method to check coverage by search engine.
+		\end{itemize}
+	\item Advantages:
+		\begin{itemize}
+			\item Statistically clean method at least in theory!
+			\item Could work even for infinite web (assuming convergence) under certain metrics.
+		\end{itemize}
+	\item Disadvantages:
+		\begin{itemize}
+			\item List of seeds is a problem.
+			\item Practical approximation might not be valid.
+			\item Non-uniform distribution (subject to link spamming).
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Teleporting:}
+\begin{itemize}
+	\item At a dead end, jump to a random web page.
+	\item At any non-dead end, with probability, say, 10\%, jump to a random web page.
+	\item With remaining probability (90\%), go out on a random link.
+	\item Cannot get stuck locally.
+	\item There is a long-term rate at which any page is visited.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Query-Independent ordering:}
+\begin{itemize}
+	\item Undirected popularity: Each page gets a score = the number of in-links plus the number of out-links.
+	\item Directed popularity: Score of a page = number of its in-links.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Hyperlink-Induced Topic Search (HITS):}
+\begin{itemize}
+	\item In response to a query, instead of an ordered list of pages each meeting the query, find two sets of inter-related pages:
+		\begin{itemize}
+			\item Hub pages are good lists of links on a subject (a good hub page for a topic points to many authoritative pages for that topic).
+			\item Authority pages occur recurrently on good hubs for the subject (A good authority page for a topic is pointed to by many good hubs for that topic).
+		\end{itemize}
+	\item Gets at a broader slice of common opinion.
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Page Ranking Example:}
+
+\end{breakbox}
 
 
 
