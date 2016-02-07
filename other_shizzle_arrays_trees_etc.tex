@@ -1,5 +1,5 @@
 
-\section{Arrays, CTE, Trees}
+\section{Array, CTE, Tree, XML, JSON, Graph, hstore}
 
 \begin{breakbox}
 \boxtitle{Create Table With Array:}
@@ -11,27 +11,27 @@
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Insert:}
+\boxtitle{Array Insert:}
 \sql{sql_code/array_insert.sql}
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Constructors:}
+\boxtitle{Array Constructors:}
 \sql{sql_code/array_constructors.sql}
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Select:}
+\boxtitle{Array Select:}
 \sql{sql_code/array_select.sql}
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Operators:}
+\boxtitle{Array Operators:}
 \sql{sql_code/array_operators.sql}
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Functions:}
+\boxtitle{Array Functions:}
 \sql{sql_code/array_functions.sql}
 
 Further: not equal <>, comparison < =< > >= (lexicographical comparison of elements), contains @>, array-to-array concatenation ||.
@@ -104,6 +104,43 @@ To convert a table to XML:
 \sql{sql_code/xml_table_to_xml.sql}
 
 \sql{sql_code/xml_students.sql}
+\end{breakbox}
 
+\begin{breakbox}
+\boxtitle{JSON/JSONB:}
 
+Typical JSON document, can be nested (see address):
+\sql{sql_code/json_person_example.sql}
+
+\textbf{JSONB} (binary) has no duplicate keys and last key wins. Postgres uses a hashing function to store them in binary. Keys are sorted.
+\sql{sql_code/json_jsonb_example.sql}
+
+\textbf{Operators:}
+\sql{sql_code/json_operators.sql}
+
+\textbf{Functions:}
+	\begin{itemize}
+		\item array\_to\_json(anyarray), row\_to\_json(record), to\_json(anyelement), json\_array\_length(json)
+		\item json\_object\_keys(json), json\_array\_elements(json) expands a JSON array to a set of JSON elements
+	\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Traversing Graph With CTE:}
+\sql{sql_code/cte_graph_traversal.sql}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Key Value Pairs (hstore):}
+
+''RDBMS are designed for consistency and efficiency. By using KVP schema you throw the retrieval capability down the drain!''
+
+Possibly suitable for
+\begin{itemize}
+	\item Easy data storage and data capture
+	\item Rows with many attributes that are rarely examined
+	\item Semi-structured data
+\end{itemize}
+
+\sql{sql_code/hstore_examples.sql}
 \end{breakbox}
