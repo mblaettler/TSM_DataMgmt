@@ -77,3 +77,35 @@ Example for counting words in documents:
 	\item 30 most common words account for 30\,\% of the tokens in written text.
 \end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Heaps' Law:}
+
+Law, which describes the number of distinct words in a document as a function of the document length (so called type-token relation).
+
+M=size of the vocabulary, T=number of tokens in collection:
+\begin{center}
+	$M=kT^b$
+\end{center}
+
+Typical values: $30 \leq k \leq 100$ and $b \approx 0.5$
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Zipf's Law}
+
+Law for the relative frequencies of terms. In natural language, there are a few very frequent and very many very rare terms.
+
+\begin{center}
+	The $i$-th most frequent term has frequency proportional to $\frac{1}{i}$.
+\end{center}
+
+If the terms are sorted by their frequency, then their probability is inversely proportional to their position in the ordering.
+
+$cf_i$ is collection frequency: the number of occurences of the term $t_i$ in the collection. So if the most frequent term (the) occurs $cf_1$ times
+\begin{itemize}
+	\item then the second most frequent term (of) occurs
+$\frac{cf_1}{2}$times
+	\item the third most frequent term (and) occurs $\frac{cf_1}{3}$ times \ldots
+\end{itemize}
+\end{breakbox}
