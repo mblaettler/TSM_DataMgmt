@@ -70,10 +70,82 @@ Example for counting words in documents:
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Statistics from Preprocessing}
+\boxtitle{Statistics from Preprocessing:}
 
 \begin{itemize}
 	\item Stemming and case folding reduce the indexed terms about 17\,\%.
 	\item 30 most common words account for 30\,\% of the tokens in written text.
 \end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Heaps' Law:}
+
+Law, which describes the number of distinct words in a document as a function of the document length (so called type-token relation).
+
+M=size of the vocabulary, T=number of tokens in collection:
+\begin{center}
+	$M=kT^b$
+\end{center}
+
+Typical values: $30 \leq k \leq 100$ and $b \approx 0.5$
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Zipf's Law:}
+
+Law for the relative frequencies of terms. In natural language, there are a few very frequent and very many very rare terms.
+
+\begin{center}
+	The $i$-th most frequent term has frequency proportional to $\frac{1}{i}$.
+\end{center}
+
+If the terms are sorted by their frequency, then their probability is inversely proportional to their position in the ordering.
+
+$cf_i$ is collection frequency: the number of occurences of the term $t_i$ in the collection. So if the most frequent term (the) occurs $cf_1$ times
+\begin{itemize}
+	\item then the second most frequent term (of) occurs
+$\frac{cf_1}{2}$times
+	\item the third most frequent term (and) occurs $\frac{cf_1}{3}$ times \ldots
+\end{itemize}m
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{IR Models -- Basic Concepts:}
+
+\begin{itemize}
+	\item Not all terms are equally useful for representing the document content: less frequent terms allow identifying a narrower set of documents
+	\item Importantce of index terms is represented by weights associated to them.
+	\item $ki$=index term, $d_j$=document $w_{ij}$=weight associated with $(k_i,d_j)$
+	\item $w_{ij}$ quantifies the importance of the index term for describing the document contents
+	\item $w_{ij}=0$ indicates that term does not belong to doc
+	\item t is the total number of docs
+	\item $K=(k_1,k_2, \ldots, k_t)$ set of all index terms
+	\item $\text{vec}(d_j) = (w_{1j}, w_{2j}, \ldots, w_{tj})$ is a weighed vector associated with the document $d_j$
+	\item $g_i(\text{vec}(d_j)) = w_{ij}$ is a function which returns the weight associated with pair $(k_i, d_j)$
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Boolean Model:}
+
+Queries are specified as boolean expressions. Terms are either present or absent: $w_{ij} \in {0,1}$ and \textbf{cannot match partially}.
+
+\begin{center}
+	\includegraphics[width=.12\textwidth]{slides_images/boolean_model_example}
+\end{center}
+
+Disadvantages:
+\begin{itemize}
+	\item No ranking of the documents is provided (absence of a grading scale)
+	\item Information need has to be translated into a
+Boolean expression which most users find awkward
+	\item Boolean queries formulated by the users are mostly too simplistic
+	\item Consequence, model frequently returns either too few or too many documents in response to a user query
+\end{itemize}
+\end{breakbox}
+
+\begin{breakbox}
+\boxtitle{Vector Space Model}
+
 \end{breakbox}
