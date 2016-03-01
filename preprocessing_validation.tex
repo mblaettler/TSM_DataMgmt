@@ -76,8 +76,8 @@ Given: list with visitors' ages:
 Each bin should just hold 3 distinct values. $12/3=4$ since all bins should have the same size. Naming the bins is optional.
 
 \begin{itemize}
-	\item \textbf{Children:} $7 \leq age \le 10$ with $7$ $7$ $8$ $9$
-	\item \textbf{Youths:} $10 \leq age \le 22$ with $10$ $12$ $13$ $22$
+	\item \textbf{Children:} $7 \leq age < 10$ with $7$ $7$ $8$ $9$
+	\item \textbf{Youths:} $10 \leq age < 22$ with $10$ $12$ $13$ $22$
 	\item \textbf{Adults:} $22 \leq age \leq 64$ with $22$ $36$ $38$ $64$
 \end{itemize}
 
@@ -91,8 +91,8 @@ The objective is to sort the unknown instances. In the end, determining the bin 
 Each bin should have the same interval width, again 3 bins.  Range from $7$ to $64 \implies$ $(64-7)/3=19$. One bin is exactly 19 years wide, except the last one which contains 20 items.
 
 \begin{itemize}
-	\item \textbf{Young:} $7 \leq age \le 26$ with $7$ $7$ $8$ $9$ $10$ $12$ $13$ $22$ $22$
-	\item \textbf{Youths:} $26 \leq age \le 45$ with $36$ $38$
+	\item \textbf{Young:} $7 \leq age < 26$ with $7$ $7$ $8$ $9$ $10$ $12$ $13$ $22$ $22$
+	\item \textbf{Youths:} $26 \leq age < 45$ with $36$ $38$
 	\item \textbf{Adults:} $45 \leq age \leq 64$ with $64$	
 \end{itemize}
 \end{breakbox}
