@@ -29,7 +29,7 @@ INSERT INTO students VALUES ('
 </students>
  ');
 
--- all students
+-- all students (entire records)
 SELECT xpath('/students', c) FROM students;
 -- first student (entire record)
 SELECT xpath('/students/student[position()=1]', c) FROM students;

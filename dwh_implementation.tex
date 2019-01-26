@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 
 \section{DWH Implementation}
 
@@ -36,18 +37,9 @@ Exercise: A page can hold 4 array cells.
 \end{center}
 \end{breakbox}
 
-%\begin{breakbox}
-%\boxtitle{Special analytical operations:}
-%\begin{itemize}
-%	\item pivoting (rotate cube around one of its axes)
-%	\item transposing (swap one dimension for another)
-%	\item reordering dimensions (sort dimension values differently)
-%	\item adding dimensions
-%\end{itemize}
-%\end{breakbox}
-
 \begin{breakbox}
 \boxtitle{FASMI:}
+Trying to define OLAP
 \begin{itemize}
 	\item \textcolor{Emerald}{F}ast: response time < 5 s, complex queries max. 20 s.
 	\item \textcolor{Emerald}{A}nalysis: intuitive analytical functionality.
@@ -101,39 +93,28 @@ ROLAP:
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{HOLAP:}
-\newline advantage of arrays over relations:
+\boxtitle{HOLAP:} Hybrid approach between MOLAP and ROLAP.
+\begin{itemize}
+	\item sparse data remains in relational DB.
+	\item dense data gets exported to multidimensional arrays.
+\end{itemize}
+Advantage of arrays over relations:
 \begin{itemize}
 	\item depends on allocation rate of data in cube.
 	\item starts at certain thresholds.
-\end{itemize}
-Objective:
-\begin{itemize}
-	\item combine advantages of MOLAP and ROLAP.
-\end{itemize}
-Hybrid OLAP:
-\begin{itemize}
-	\item hybrid approach.
-	\item sparse data remains in relational DB.
-	\item dense data gets exported to multidimensional arrays.
 \end{itemize}
 \end{breakbox}
 
 \begin{breakbox}
 \boxtitle{Optimize ROLAP:}
-\newline RDBS performance:
-\begin{itemize}
-	\item suffers most from joins of huge data sets.
-\end{itemize}
- Optimization objective:
-\begin{itemize}
-	\item significantly reduce data sets by indexing.
-\end{itemize}
-Special indexes often applied with DWHs:
-\begin{itemize}
-	\item Join Indexes.
-	\item Bitmap Indexes.
-\end{itemize}
+\newline RDBS performance: suffers most from joins of huge data sets.
+\newline Optimization objective: significantly reduce data sets by indexing.
+\newline Special indexes often applied with DWHs:
+\begin{description}
+	\item[Join Indexes] Index pointing on multiple tables.
+	\item[Bitmap Indexes] A bitvector for each indexed attribute with a 
+	bitvector for each distinct value (bit=1 value occurs, else 0).
+\end{description}
 \end{breakbox}
 
 \begin{breakbox}

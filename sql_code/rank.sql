@@ -1,3 +1,6 @@
+-- Ranks the selected results
+-- (the higher the better) over
+-- the selected window
 SELECT s_year, s_month, sales AS monthly_sales, RANK() OVER (
   PARTITION BY s_year
   ORDER BY sales DESC) AS rank_monthly_sales_per_year

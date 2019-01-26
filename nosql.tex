@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 
 \section{NoSQL Databases}
 
@@ -196,36 +197,6 @@ One can only pick two of those properties at a time.
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{Cassandra:}
-\begin{itemize}
-	\item Eventually consistent
-	\item Designed for distributed databases
-	\item Nodes synchronize P2P instead of master-slave
-	\item Columns hold name, values and time stamp
-	\item Columns are sorted by key-name
-	\item Use cases: Internet of things, sensordata, product catalogues, playlists, messaging, chats, social media
-\end{itemize}
-\end{breakbox}
-
-\begin{breakbox}
-\boxtitle{MemSQL:}
-\begin{itemize}
-	\item In-memory database supporting disk-based column stores
-	\item reference tables / shard tables
-	\item Multiversion cuncurrency control (MVCC)
-	\item Just-In-Time Compiler for SQL (SQL to C++)
-	\item Indexes:
-		\begin{itemize}
-			\item Skip lists (B-Tree)
-			\item Column store
-			\item Hash table
-			\item Index commands: CREATE INDEX, DROP INDEX, SHOW INDEX, SHOW INDEXES, SHOW KEYS, EXPLAIN
-		\end{itemize}
-	\item Use cases: real time data analysis, lots of inserts and updates
-\end{itemize}
-\end{breakbox}
-
-\begin{breakbox}
 \boxtitle{Graph Databases:}
 \begin{itemize}
 	\item Examples: Neo4j, FlockDB, InfiniteGraph
@@ -254,16 +225,6 @@ One can only pick two of those properties at a time.
 	\item In-memory stores
 	\item Array stores
 	\item Tree stores / XML databases (Tamino, eXist)
-\end{itemize}
-\end{breakbox}
-
-\begin{breakbox}
-\boxtitle{Polygot Persistence:}
-\begin{itemize}
-	\item Using different data storage technologies for varying data storage needs.
-	\item Can apply across an enterprise or within a single application.
-	\item Encapsulating data access into services reduces the impact of data storage choices on other parts of a system.
-	\item One size does not fit all.
 \end{itemize}
 \end{breakbox}
 

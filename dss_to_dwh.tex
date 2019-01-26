@@ -1,19 +1,13 @@
+% !TeX spellcheck = en_GB
 
 \section{DSS To DWH}
 
 \begin{breakbox}
 \boxtitle{Grouping Sets:}
 \sql{sql_code/grouping_sets.sql}
-Remarks:
-\begin{itemize}
-	\item PARTITION BY $\cdots$: If left out, all tuples are selected.
-	\item ORDER BY $\cdots$: Sorts the sequence.
-	\item $\cdots$ ROWS $\cdots$: (optional): If window size not explicitly set:
-		\begin{itemize}
-			\item whole partition or
-			\item until current tuple in the case that a sort order sequence is given.
-		\end{itemize}
-\end{itemize}
+With the \lstinline{GROUPING(column)} command it is possible
+to see if this value is grouped.
+\sql{sql_code/grouping_command.sql}
 \end{breakbox}
 
 \begin{breakbox}
@@ -22,8 +16,10 @@ Remarks:
 \end{breakbox}
 
 \begin{breakbox}
-\boxtitle{LAG:}
+\boxtitle{LAG/LEAD:}
 \sql{sql_code/lag.sql}
+Instead of  \lstinline{LAG(n)} \lstinline{LEAD(n)} can be used to get n records
+in advance.
 \end{breakbox}
 
 \begin{breakbox}
@@ -34,6 +30,8 @@ Remarks:
 \begin{breakbox}
 \boxtitle{AVG and formatting:}
 \sql{sql_code/avg_format.sql}
+To get following cells the \lstinline{FOLLOWING} keyword is used instead of
+\lstinline{PRECEEDING}.
 \end{breakbox}
 
 %\begin{breakbox}
@@ -62,10 +60,6 @@ Remarks:
 	\begin{itemize}
 		\item calculate correlation
 	\end{itemize}
-	\item LAG(), LEAD()
-	\begin{itemize}
-		\item go back (lag) / advance (lead) n records in partition
-	\end{itemize}
 	\item RATIO\_TO\_REPORT()
 	\begin{itemize}
 		\item value's proportion of total of partition
@@ -79,6 +73,9 @@ Remarks:
 
 \begin{breakbox}
 \boxtitle{OLTP vs. OLAP:}
+OLTP are the working databases where all the applications write into
+(different) databases. In OLAP all the operational databases are integrated
+into one DB for \textbf{analytical processes.}
 \begin{itemize}
 	\item Workload:
 	\begin{itemize}

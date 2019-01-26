@@ -1,4 +1,4 @@
-
+% !TeX spellcheck = en_GB
 \section{Classification}
 
 \begin{breakbox}
@@ -7,16 +7,20 @@
 \begin{itemize}
 	\item also: samples, examples, records, tuples, objects.
 	\item individual, independent samples, e.g. a customer transaction.
-\end{itemize} Attributes:
+\end{itemize}
+ Attributes:
 \begin{itemize}
 	\item qualities, properties of instances (e.g. profession, age, education etc.).
-\end{itemize} Attribute value:
+\end{itemize}
+ Attribute value:
 \begin{itemize}
 	\item concrete occurrence of an attribute (e.g. IT analyst, 37, master in computer science).
-\end{itemize}Class label (class attribute):
+\end{itemize}
+Class label (class attribute):
 \begin{itemize}
 	\item attribute determining the class of an instance (e.g. potential customer).
-\end{itemize}Class:
+\end{itemize}
+Class:
 \begin{itemize}
 	\item distinct value of the class label (e.g. yes).
 \end{itemize}
@@ -24,6 +28,8 @@
 
 \begin{breakbox}
 \boxtitle{1R Algorithm:}
+Analyses only one parameter and takes the rule with the least total
+error.
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/1r_algorithm}
 \end{center}
@@ -31,6 +37,7 @@
 
 \begin{breakbox}
 \boxtitle{ID3-Algorithm:}
+Used to create decision trees.
 \begin{enumerate}
 	\item Start with root node where no attribute is assigned yet. Root node contains full set of training instances.
 	\item Identify individual classes and determine distribution of classes over instances.
@@ -50,17 +57,16 @@
 
 \begin{breakbox}
 \boxtitle{Calculate information content:}
-\begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/information_content}
-\includegraphics[width=.15\textwidth]{slides_images/information_content_example}
-\end{center}
+\begin{align*}
+info[s_1, ..., s_n]=\\
+\frac{-\sum s_i log_2(s_i)+ \sum s_i log_2(\sum(s_i))}{\sum{s_i}}
+\end{align*}
 \end{breakbox}
 
 \begin{breakbox}
 \boxtitle{Calculate entropy:}
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/entropy}
-\includegraphics[width=.15\textwidth]{slides_images/entropy_example}
 \end{center}
 \end{breakbox}
 
@@ -68,94 +74,39 @@
 \boxtitle{Calculate information gain:}
 \newline Gain = info[parent node] - E[child node]
 \end{breakbox}
-
-\begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/id3_tree}
-\end{center}
-
-%\begin{breakbox}
-%\boxtitle{Approximate values for $x log_2(x)$:}
-%\begin{center}
-%\includegraphics[width=.15\textwidth]{slides_images/log_values}
-%\end{center}
-%\end{breakbox}
 \end{breakbox}
 
-%\begin{breakbox}
-%\boxtitle{Overfitting:}
-%\newline Model is extremely accurate
-%\begin{itemize}
-%	\item for predicting the training set.
-%\end{itemize}
-%Model is less accurate:
-%\begin{itemize}
-%	\item for predicting instances outside training set.
-%	\item accuracy drops significantly.
-%\end{itemize}
-%Make models fit less to the training set:
-%\begin{itemize}
-%	\item might make them fit better in general (for any other set of instances).
-%	\item applied to tree-like models: pruning.
-%\end{itemize}
-%\end{breakbox}
+\begin{breakbox}
+\boxtitle{Prepruning:}
+\newline Stop construction before split is executed:
+\begin{itemize}
+	\item do not develop certain branches.
+	\item nodes are set to leafs though not homogenous yet.
+\end{itemize}
+Executed during tree construction:
+\begin{itemize}
+	\item e.g.: information gain achieved by a certain split does not surmount a pre-defined threshold $\rightarrow$ split is omitted.
+\end{itemize}
+\end{breakbox}
 
-%\begin{breakbox}
-%\boxtitle{Prepruning:}
-%\newline Stop construction before split is executed:
-%\begin{itemize}
-%	\item do not develop certain branches.
-%	\item nodes are set to leafs though not homogenous yet.
-%\end{itemize}%Executed during tree construction:
-%\begin{itemize}
-%	\item e.g.: information gain achieved by a certain split does not surmount a pre-defined threshold $\rightarrow$ split is omitted.
-%\end{itemize}
-%\end{breakbox}
+\begin{breakbox}
+\boxtitle{Postpruning:}
+\begin{itemize}
+	\item reverse splits
+	\item execution after full development of tree
+	\item merging of child nodes (e.g.: calculate the tree's error rate (incorrectly classified instances / all instances) if child nodes would be merged. If rate is below pre-defined threshold then merge (i.e. eliminate the sub-tree)).
+\end{itemize}
+\end{breakbox}
 
-%\begin{breakbox}
-%\boxtitle{Postpruning:}
-%\begin{itemize}
-%	\item reverse splits
-%	\item execution after full development of tree
-%	\item merging of child nodes (e.g.: calculate the tree's error rate (incorrectly classified instances / all instances) if child nodes would be merged. If rate is below pre-defined threshold then merge (i.e. eliminate the sub-tree)).
-%\end{itemize}
-%\end{breakbox}
+\begin{breakbox}
+\boxtitle{C4.5} Another algorithm to create trees. Extension of
+ID3.
+\end{breakbox}
 
 \begin{breakbox}
 \boxtitle{Naïve Bayes:}
-\newline \textcolor{Emerald}{A-Priori Probability:}
 \begin{itemize}
-	\item P(Newly industrialized country) = 5/25
-	\item P(Developing country) = 8/25
+	\item $P(C_i|X_i) = \frac{P(X_i|C_i)\cdot P(C_i)}{P(X_i)}$
+	\item $P(X_i|C_i) =\\ \frac{\#\ Training\ instances\ of\ C_i\ with X_i}{\#\ Training instances\ of\ C_i}$
 \end{itemize}
-\textcolor{Emerald}{A-Posteriori Probability:}
-\begin{center}
-\includegraphics[width=.15\textwidth]{slides_images/naive_bayes_table}
-\end{center}
-For P(Country W | Newly industrialized country):
-\begin{itemize}
-	\item Population growth: low $\rightarrow$ 1/5 = 0.2
-	\item Literacy: high $\rightarrow$  2/5 = 0.4
-	\item GDP/capita: low $\rightarrow$ 3/5 = 0.6
-	\item Agricultural GDP: medium $\rightarrow$ 3/5 = 0.6
-	\item Industrial GDP: medium $\rightarrow$ 4/5 = 0.8
-\end{itemize}
-For P(Country W | Developing country):
-\begin{itemize}
-	\item Population growth: low $\rightarrow$ 0
-	\item Literacy: high $\rightarrow$  0
-	\item GDP/capita: low $\rightarrow$ 2/8 = 0.25
-	\item Agricultural GDP: medium $\rightarrow$ 2/8 = 0.25
-	\item Industrial GDP: medium $\rightarrow$ 4/5 = 0.375
-\end{itemize}
-\textcolor{Emerald}{Probability for specific category:}
-\newline P(Country W | Newly industrialized country) $\cdot$ P(Newly industrialized country):
-\begin{itemize}
-	\item $0.2 \cdot 0.3 \cdot 0.6 \cdot 0.6 \cdot 0.8 \cdot 0.2 = 4.608 \cdot 10^{-3}$
-\end{itemize}
-P(Country W | Developing country) $\cdot$ P(Developing country):
-\begin{itemize}
-	\item $0.0909 \cdot 0.0909 \cdot 0.25 \cdot 0.25 \cdot 0.375 \cdot 0.32 = 0.062 \cdot 10^{-3}$
-	\item Note: We pretend having had at least 1 occurrence for each of the non-occuring attributes. In return we add 1 fictious occurence for the other attributes as well. Of course, when doing so we have to increase the total number of instances accordingly (1/11 = 0.0909 for first to attributes).
-\end{itemize}
-So country W is definitely a newly industrialized country (at least according to Bayes).
 \end{breakbox}

@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 
 \section{Preprocessing and Validation}
 
@@ -15,58 +16,51 @@
 \end{itemize}
 \end{breakbox}
 
+\begin{breakbox}
+\boxtitle{Data Reduction:}
 
+Ways to reduce large data sets:
 
-%\begin{breakbox}
-%\boxtitle{Data Reduction:}
-%
-%Ways to reduce large data sets:
-%
-%\begin{itemize}
-%	\item Aggregation
-%		\begin{itemize}
-%			\item merging instances
-%			\item roll-up operations on data cubes
-%		\end{itemize}
-%	\item Reduction of dimensions
-%		\begin{itemize}
-%			\item elimination of attributes
-%			\item merging of attributes (''generalization'')
-%			\item e.g. merge all persons with the same birthday and save somewhere how many persons are in this group 
-%		\end{itemize}
-%	\item Numerosity reduction
-%		\begin{itemize}
-%			\item just use samples from data, not the total set (''Stichproben'')
-%			\item representation of a series of instances by 1 cluster. e.g. by the cluster mean or medoid
-%			\item regression: representation of instances by function coefficients. e.g. replace multiple points with a function (=less storage), approximation of the reality.
-%		\end{itemize}
-%\end{itemize}
-%\begin{center}
-%	\includegraphics[width=.12\textwidth]{slides_images/data_reduction_regression_line}
-%\end{center}
-%\end{breakbox}
+\begin{itemize}
+	\item Aggregation
+		\begin{itemize}
+			\item merging instances
+			\item roll-up operations on data cubes
+		\end{itemize}
+	\item Reduction of dimensions
+		\begin{itemize}
+			\item elimination of attributes
+			\item merging of attributes (''generalization'')
+			\item e.g. merge all persons with the same birthday and save somewhere how many persons are in this group 
+		\end{itemize}
+	\item Numerosity reduction
+		\begin{itemize}
+			\item just use samples from data, not the total set (''Stichproben'')
+			\item representation of a series of instances by 1 cluster. e.g. by the cluster mean or medoid
+			\item regression: representation of instances by function coefficients. e.g. replace multiple points with a function (=less storage), approximation of the reality.
+		\end{itemize}
+\end{itemize}
+\end{breakbox}
 
-
-
-%\begin{breakbox}
-%\boxtitle{Attribute Subset Selection Techniques:}
-%Idea: explore the search space of attribute combinations for the most useful ones.
-%\begin{itemize}
-%	\item Stepwise Forward Selection
-%	\item Stepwise Backward Elimination
-%	\item Combination from both
-%	\item Best-First: keeps calculation results for later recurrence
-%	\item Beam Search: keeps constant number of most promising candidates
-%	\item Genetic Algorithms: ''evolution'' by any number of permutations
-%\end{itemize}
-%\end{breakbox}
+\begin{breakbox}
+\boxtitle{Attribute Subset Selection Techniques:}
+Idea: explore the search space of attribute combinations for the most useful ones.
+\begin{itemize}
+	\item Stepwise Forward Selection
+	\item Stepwise Backward Elimination
+	\item Combination from both
+	\item Best-First: keeps calculation results for later recurrence
+	\item Beam Search: keeps constant number of most promising candidates
+	\item Genetic Algorithms: ''evolution'' by any number of permutations
+\end{itemize}
+\end{breakbox}
 
 
 \begin{breakbox}
 \boxtitle{Binning:}
+Common technique to solve Discretization.
 
 Given: list with visitors' ages:
-
 \begin{center}
 7, 7, 8, 9, 10, 12, 13, 22, 22, 36, 38, 64
 \end{center}
@@ -104,9 +98,9 @@ Grouping unknown instances:
 \hline
 8   & Children  & young     \\
 22  & Adults    & young     \\
-45  & Adults    & old       \\
+45  & Adults    & Adults    \\
 6   & Children  & young     \\
-70  & Adults    & old      
+70  & Adults    & Adults      
 \end{tabular}
 
 The two last entries are outside of the training set's value domain so the most fitting discrete value is assigned.
@@ -183,12 +177,10 @@ Indicators:
 			\item constract class predicted, actual class different
 			\item instances classified as not ''RC'' but \textbf{''RC'' though: $2$}
 		\end{itemize}
-	\item Precision = TP/(TP+FP) = $4/(4+1)=0.8$
-	\item Recall = TP/(TP+FN) = $4/(4+2)=0.67$
+	\item Precision = $TP/(TP+FP) = 4/(4+1)=0.8$
+	\item Recall = $TP/(TP+FN) = 4/(4+2)=0.67$
 \end{itemize}
 \end{breakbox}
-
-
 
 \begin{breakbox}
 \boxtitle{F-Measure:}
@@ -201,8 +193,6 @@ $2 \cdot \frac{Precision \cdot Recall}{Precision + Recall} = \frac{2TP}{2TP + FN
 
 F-measure reaches its best value at 1 and worst at 0.
 \end{breakbox}
-
-
 
 \begin{breakbox}
 \boxtitle{Cross-Validation:}
