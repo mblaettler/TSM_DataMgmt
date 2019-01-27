@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 
 \section{Information Retrieval I}
 
@@ -22,7 +23,14 @@
 	\item *mon: find words ending in mon: harder (Maintain an B-tree for terms backwards).
 	\item Bigram (k-gram, sequence of k chars) indexes (Maintain a second inverted index from bigrams to dictionary terms that match each bigram).
 \end{itemize}
-\lstinputlisting[language=SQL]{sql_code/wild_card_queries.sql}
+Code: See above.
+\end{breakbox}
+
+\begin{breakbox}
+	\boxtitle{Overview of different text search methods}
+	\begin{center}
+		\includegraphics[width=0.16\textwidth]{slides_images/text_search_methods}
+	\end{center}
 \end{breakbox}
 
 \begin{breakbox}
@@ -57,6 +65,14 @@ Term Frequency Matrix:
 \begin{center}
 \includegraphics[width=.05\textwidth]{slides_images/term_frequency_matrix}
 \end{center}
+The following properties are often used when constructing an inverted index:
+\begin{description}
+	\item[Tokenization] Split the document into segments. Mostly words.
+	\item[Normalization/Stemming] Cuts irrelevant parts from words. Seen $\implies$ See.
+	\item[Lemmatization] Stemming with more context. Saw $\implies$ See.
+	\item[Stopp words] Words which should not be added to the index.
+	\item[Special compound words] A German language problem. E.g. ''Naturschutzobjekt''.
+\end{description}
 \end{breakbox}
 
 \begin{breakbox}
