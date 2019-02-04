@@ -31,3 +31,17 @@
 		\item One size does not fit all.
 	\end{itemize}
 \end{breakbox}
+
+\begin{breakbox}
+	\boxtitle{PostgreSQL}
+	\begin{breakbox}
+		\boxtitle{NULL}
+		Is the return value if no element is found.\\
+		Never check for
+		\lstinline[language=sql]{NULL <> NULL} or
+		\lstinline[language=sql]{NULL = NULL}.
+		To check for NULL use the \lstinline[language=sql]{IS NULL} or
+		\lstinline[language=sql]{IS NOT NULL}
+	\end{breakbox}
+	
+\end{breakbox}

@@ -61,9 +61,13 @@ Code: See above.
 \begin{center}
 \includegraphics[width=.15\textwidth]{slides_images/inverted_index}
 \end{center}
-Term Frequency Matrix:
+\textbf{Term Frequency Matrix/Posting-Liste}:
 \begin{center}
 \includegraphics[width=.05\textwidth]{slides_images/term_frequency_matrix}
+\end{center}
+\textbf{Dictionary}:
+\begin{center}
+\includegraphics[width=.05\textwidth]{slides_images/IR_dictionary}
 \end{center}
 The following properties are often used when constructing an inverted index:
 \begin{description}
@@ -71,6 +75,8 @@ The following properties are often used when constructing an inverted index:
 	\item[Normalization/Stemming] Cuts irrelevant parts from words. Seen $\implies$ See.
 	\item[Lemmatization] Stemming with more context. Saw $\implies$ See.
 	\item[Stopp words] Words which should not be added to the index.
+	\item[Case folding] Convert everything to lowercase/uppercase for case-insensitive
+	lookup.
 	\item[Special compound words] A German language problem. E.g. ''Naturschutzobjekt''.
 \end{description}
 \end{breakbox}

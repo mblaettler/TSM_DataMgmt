@@ -24,6 +24,8 @@
 \begin{breakbox}
 \boxtitle{Array Select:}
 \sql{sql_code/array_select.sql}
+
+If a non-existing index is selected the result is NULL.
 \end{breakbox}
 
 \begin{breakbox}
@@ -91,7 +93,6 @@ id & name   & lineage (e.g. ltree, array or string) \\
 3  & Dog    & 1,3                  \\
 4  & Cat    & 1,4                 
 \end{tabular}
-
 \textbf{Comparison:}
 \begin{center}
 	\includegraphics[width=0.16\textwidth]{slides_images/comparison_tree_data.png}
